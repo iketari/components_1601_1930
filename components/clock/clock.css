@@ -1,0 +1,8 @@
+.clock {
+  background-color: #000;
+  color: #fff;
+}
+
+  .clock__hours {
+    font-weight: 700;
+  }
