@@ -169,13 +169,6 @@ u>u {
   top:4em;
   left:4em;
   position:absolute;
-  transform: rotate(30deg);
-}
-.hh {
-  transform:rotate(-55deg);
-}
-.mm {
-  transform:rotate(60deg);
 }
 
 
@@ -188,7 +181,6 @@ u>u {
   position:relative;
   background:#a00;
   outline: 1px solid transparent;
-  rotation: 30deg;
 }
 .sr {
   width:3em;

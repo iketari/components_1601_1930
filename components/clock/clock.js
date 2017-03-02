@@ -5,9 +5,9 @@
       constructor (opts) {
         this.el = opts.el;
 
-        this.hours = this.el.querySelector('.clock__hours');
-        this.mins = this.el.querySelector('.clock__mins');
-        this.secs = this.el.querySelector('.clock__secs');
+        this.hours = this.el.getElementsByClassName('hh');
+        this.mins = this.el.getElementsByClassName('mm');
+        this.secs = this.el.getElementsByClassName('ss');
 
         this.start();
       }
@@ -15,11 +15,16 @@
       start () {
         setInterval(() => {
           let date = new Date();
+          this.hours[1].style.transform = "rotate("+date.getHours()*12+"deg)";
+          this.hours[0].style.transform = "rotate("+date.getHours()*12+"deg)";
 
-          this.hours.innerHTML = date.getHours();
-          this.mins.innerHTML = date.getMinutes();
-          this.secs.innerHTML = date.getSeconds();
-        }, 1000);
+          this.mins[1].style.transform = "rotate("+date.getMinutes()*6+"deg)";
+          this.mins[0].style.transform = "rotate("+date.getMinutes()*6+"deg)";
+
+          this.secs[1].style.transform = "rotate("+date.getSeconds()*6+"deg)";
+          this.secs[0].style.transform = "rotate("+date.getSeconds()*6+"deg)";
+
+        }, 100);
       }
 
   }
