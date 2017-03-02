@@ -1,8 +1,308 @@
-.clock {
-  background-color: #000;
-  color: #fff;
+html,body {
+  height: 100%;
+  margin:0;
+  padding:0;
+  background:#eee;
 }
 
-  .clock__hours {
-    font-weight: 700;
+.contents {
+  height:100%;
+  padding:0 5% 0 50%;
+  background:linear-gradient(135deg, #579ED4, #eee);
+  background: -moz-radial-gradient(40% 10%, circle farthest-side, #579ED4 0%, #eee 80%, #eee 100%);
+  background: -webkit-radial-gradient(40% 10%, circle farthest-side, #579ED4 0%, #eee 80%, #eee 100%);
+}
+#clock {
+  position: absolute;
+  right: 35%;
+  top: 25%;
+}
+
+#clock {
+  transition: all 0.5s ease;
+}
+#a {
+  width:100em;
+  height:100em;
+  position:relative;
+  border-radius:50em;
+  background:#eee;
+  box-shadow:
+          inset 0.5em -0.5em 0 #ccc,
+          inset 1.7em -1.7em 0 #555,
+          inset -0.3em -0.4em 0 #999,
+          inset -0.3em 0.2em 0 #ccc,
+          inset -1em -1em 0 #555,
+          1em 3em 2em rgba(0,0,0,0.3);
+}
+#b {
+  width:94em;
+  height:94em;
+  top:3em;
+  left:3em;
+  position:relative;
+  border-radius:47em;
+  background:#fff;
+  box-shadow:
+          inset 0.4em 0 0 #fff,
+          inset 0 -0.6em 0 #ddd,
+          inset 1.6em -0.8em 0 #222,
+          inset -1.6em 0.8em 0 #222,
+          inset 2em 2em 0 #222,
+          0.6em -0.3em 0 #999,
+          -1em 1em 0 #777,
+          -1.3em -2em 0 #fff,
+          1.3em 2em 0 #222,
+          1.3em 3em 0 #999;
+}
+#c {
+  width:89em;
+  height:89em;
+  top:2.5em;
+  left:2.5em;
+  position:relative;
+  border-radius:44.5em;
+  background:#f4f5f6;
+  box-shadow:
+          inset 0.5em 1em 0.5em rgba(0,0,0,0.4),
+          inset 1em 2em 2em rgba(0,0,0,0.3),
+          inset 0 0.5em 3em rgba(0,0,0,0.1),
+          -1.6em 0.8em 0 #444,
+          1.6em -0.8em 0 #444;
+}
+#d { width:88em;
+  height:88em;
+  top:0.5em;
+  left:0.5em;
+  position:relative;
+  border-radius:44em;
+}
+#e { width:81.8em;
+  height:81.8em;
+  padding-top:40.9em;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  left:2.9em;
+  top:2.9em;
+  position:absolute;
+  border:solid 0.4em #777;
+  border-radius:40.9em;
+}
+#ii {
+  padding-left:43.4em;
+  position:absolute;
+}
+b, i {
+  height:82em;
+  position:absolute;
+  border:solid 0 #222;
+  border-width:3em 0;
+  display:block;
+}
+b {
+  width:1.2em;
+}
+i {
+  width:0.2em;
+}
+b>i,i>i {
+  transform:rotate(6deg) ;
+  margin-top:-3em;
+}
+b>b  {
+  transform:rotate(30deg);
+  margin-top:-3em; }
+b>i {
+  left:0.3em;
+}
+
+#f,#g {
+  font:12em/1.0em WallClock, sans-serif;
+  text-align:center;
+  width:6.8em;
+  color:#222;
+}
+#g>u>u {
+  letter-spacing:0.1em;
+}
+#g>u>u>u {
+  letter-spacing:0;
+}
+u {
+  display:block;
+  line-height:1em;
+  text-decoration: none;
+}
+u>u>u>u {
+  margin:0.5em -0.55em;
+  padding: 0 0.05em;
+}
+u>u>u {
+  margin:0.0em -1.75em;
+  padding: 0 0.7em;
+}
+u>u {
+  margin:-0.55em 0;
+  text-align:right;
+  padding: 0 1.65em;
+}
+#f {
+  margin-top:-3.37em;
+}
+#g {
+  margin-top:-6em;
+}
+#g u>u {
+  text-align:left;
+}
+
+#q {
+  font:2.2em/1em Segoe UI,Helvetica,sans-serif;
+  text-align:center;
+  margin-top:-11.5em;
+  color:#555;
+}
+.ss, .mm, .hh {
+  width:80em;
+  height:80em;
+  top:4em;
+  left:4em;
+  position:absolute;
+}
+
+
+
+.s {
+  width:1em;
+  height:48em;
+  top:6em;
+  left:39.5em;
+  position:relative;
+  background:#a00;
+  outline: 1px solid transparent;
+}
+.sr {
+  width:3em;
+  height:3em;
+  background:#a00;
+  margin:-9.5em 0 0 38.4em;
+  border-radius:1.5em;
+}
+
+
+.m {
+  height:48em;
+  left:38.9em;
+  width:2.2em;
+  position:relative;
+  background:#222;
+  border:0 0 32em 0;
+  animation: a36016 3600s normal infinite steps(3600,end);
+  outline: 1px solid transparent;
+}
+
+.mr {
+  width:5em;
+  height:5em;
+  background:#222;
+  margin:-10.5em 0 0 37.4em;
+  border-radius:2.5em;
+}
+.h {
+  width:3em;
+  height:34em;
+  left:38.5em;
+  position:relative;
+  background:#222;
+  margin-top:13em;
+  outline: 1px solid transparent;
+  animation: a36010 43200s normal infinite steps(43200,end);
+}
+#sh {
+  width:80em;
+  height:80em;
+  top:2em;
+  left:1em;
+  position:absolute;
+}
+#sh .s, #sh .m, #sh .h, #sh .mr  {
+  background:#ddd;
+  xbox-shadow:0 0 0.5em #ddd, 0 0 0.25em #ddd;
+}
+#k {
+  width:88em;
+  height:88em;
+  position:absolute;
+  border-radius:44em;
+  box-shadow:inset 4.5em 9em 0.5em rgba(250,252,253,0.2);
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #css3fixed:checked ~  #clock i, #css3fixed:checked ~  #clock b {
+    border-left:solid 0px #fff;
+    border-right:solid 0px #fff;
   }
+}
+
+/* Opera rotation fix */
+#css3fixed:checked ~ #clock .s {
+  animation: a360_10of 60s normal infinite steps(60,end);
+}
+@keyframes a360_10of {
+  0% {  transform: translate(0, 10em) rotate(0deg) translate(0,-10em);
+    -o-transform: translate(0, 3.2em) rotate(0deg) translate(0,-3.2em) }
+  100% { transform: translate(0, 10em) rotate(360deg) translate(0,-10em);
+    -o-transform: translate(0, 3.2em) rotate(360deg) translate(0,-3.2em) }
+}
+
+/* Chrome/Windows antialiasing bug. */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  #css3fixed:checked ~ #clock #f,
+  #css3fixed:checked ~ #clock #g {
+    font:12em/1em WallClockPS, sans-serif;
+  }
+  #css3fixed:checked ~ #clock #g {
+    -webkit-transform: translate(0,-0.05em);
+  }
+}
+
+/* Clock size selection */
+
+#clock { font-size:5px; }
+#size25percent:checked ~ #clock { font-size:25% }
+#size250px:checked ~ #clock { font-size:2.5px }
+#size500px:checked ~ #clock { font-size:5px }
+#size10em:checked ~ #clock { font-size:0.1em }
+#size25percent:checked ~ #clock { font-size:25% }
+
+/* Controls */
+input {
+  width:1em; position:relative; valign:top;
+}
+input[type=checkbox] {
+  left:0.2em;
+}
+input + label {
+  padding:0.2em 0.4em 0.3em 1.4em;
+  margin-left:-1.4em;
+  border-radius:0.3em;
+  transition: background 0.5s;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+}
+input:checked + label {
+  background: #ABD8F2;
+}
+input, label {
+  line-height:1.8em;
+}
+label {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
