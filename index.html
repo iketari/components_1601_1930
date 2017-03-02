@@ -13,29 +13,28 @@
       <span class="clock__hours">12</span>:
       <span class="clock__mins">00</span>:
       <span class="clock__secs">00</span>
+
+      <div class="clock__buttons">
+        <a class="clock__start">start</a>
+        <a class="clock__stop">stop</a>
+      </div>
     </div>
 
-    <div class="clock">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
-    </div>
+
+
 
     <script src="components/clock/clock.js"></script>
 
-    <script type="text/javascript">
+    <script>
       (function () {
         'use strict';
 
         // import
         let Clock = window.Clock;
+
         let clocksElArray = [...document.querySelectorAll('.clock')];
 
-        clocksElArray.forEach(el => {
-          new Clock({
-            el
-          });
-        })
+        clocksElArray.forEach(el => new Clock({el}));
       })();
     </script>
 
