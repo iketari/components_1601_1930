@@ -31,11 +31,7 @@
         let Clock = window.Clock;
         let clocksElArray = [...document.querySelectorAll('.clock')];
 
-        clocksElArray.forEach(el => {
-          new Clock({
-            el
-          });
-        })
+        clocksElArray.forEach(el => new Clock({el}));
       })();
     </script>
 
