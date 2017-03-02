@@ -1,8 +1,17 @@
 .clock {
-  background-color: #000;
-  color: #fff;
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	font-size: 50px;
 }
 
-  .clock__hours {
-    font-weight: 700;
-  }
+.clock_night {
+	background-color: #fff;
+	color: #000;
+}
+
+
+	.clock__hours {
+		font-weight: 700;
+	}
+
