@@ -4,7 +4,8 @@
   class Clock {
       constructor (opts) {
         this.el = opts.el;
-
+        this.hint = document.createElement('div');
+        
         this.hours = this.el.querySelector('.clock__hours');
         this.mins = this.el.querySelector('.clock__mins');
         this.secs = this.el.querySelector('.clock__secs');
@@ -16,7 +17,10 @@
         this._onStopClick = this._onStopClick.bind(this);
         this._onStartClick = this._onStartClick.bind(this);
         this._onClickLog = this._onClickLog.bind(this);
-
+        
+        this._mouseOver = this._mouseOver.bind(this);
+        this._mouseOut = this._mouseOut.bind(this);
+        
         this._initEvents();
       }
 
@@ -26,9 +30,32 @@
        */
       _initEvents () {
         this.stopEl.addEventListener('click', this._onStopClick);
-        this.startEl.addEventListener('click', this._onStartClick); 
+        this.startEl.addEventListener('click', this._onStartClick);
+        
+        document.addEventListener('mouseover', this._mouseOver);
+        document.addEventListener('mouseout', this._mouseOut);
       }
-
+      
+      /**
+       * Подсказка при событии наведения
+       * @param  {MouseEvent} event
+       */
+      _mouseOver(event) {
+        let text = event.target.getAttribute('data-tooltip');
+        
+        if (text != null) {
+          this.hint.classList.add("hint");
+          this.hint.style.display = "block";
+          this.hint.textContent = text;
+          
+          event.target.appendChild(this.hint);
+        }
+      }
+    
+      _mouseOut(event) {
+        this.hint.style.display = "none";
+      }
+    
       /**
        * Логирование кликов!
        * @param  {MouseEvent} event
@@ -38,7 +65,7 @@
       }
 
       /**
-       * Дейстиве при старте часиков
+       * Действие при старте часиков
        * @param  {MouseEvent} event
        */
       _onStartClick (event) {
@@ -49,7 +76,7 @@
       }
 
       /**
-       * Дейстиве при стопе часиков
+       * Действие при стопе часиков
        * @param  {MouseEvent} event
        */
       _onStopClick (event) {

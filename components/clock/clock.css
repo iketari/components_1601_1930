@@ -2,12 +2,15 @@
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  box-sizing: border-box;
 }
+
 .clock__wrapper {
   width: 605px;
   margin: 0 auto;
   margin-top: 100px;
 }
+
 .clock {
   color: #fff;
   text-align: center;
@@ -19,6 +22,7 @@
 .clock__secs,
 .clock__msecs {
   float: left;
+  min-width: 67.625px;
   background: linear-gradient(180deg, #3d3d3d,#3d3d3d 50%, #000);
   padding: 5px;
   border-left: 1px solid #fff;
@@ -40,6 +44,7 @@
 .clock__start,
 .clock__stop {
   float: left;
+  position: relative;
   cursor: pointer;
   background: linear-gradient(180deg, #3d3d3d,#3d3d3d 50%, #000);
   padding: 5px 10px 5px 10px;
@@ -51,4 +56,22 @@
   content: "";
   display: block;
   clear: both;
+}
+
+.hint {
+  position: absolute;
+  display: none;
+  bottom: -50%;
+  right: -50%;
+  min-width: 50px;
+  width: 200px;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 12px;
+  font-style: italic;
+  border-radius: 5px;
+  border: 2px solid gray;
+  color: #000;
+  text-align: center;
+  z-index: 1000;
 }
