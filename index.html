@@ -8,21 +8,23 @@
   </head>
   <body>
     <!-- Emmet -->
-
-    <div class="clock">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
-
-      <div class="clock__buttons">
-        <a class="clock__start">start</a>
-        <a class="clock__stop">stop</a>
+    <div class="clock__wrapper">
+      <div class="clock">
+        <div class="clock__hours">12</div>
+        <div class="clock__divider">:</div>
+        <div class="clock__mins">00</div>
+        <div class="clock__divider">:</div>
+        <div class="clock__secs">00</div>
+        <div class="clock__divider">:</div>
+        <div class="clock__msecs">000</div>
+        
+        <div class="clock__buttons">
+          <a class="clock__start" data-tooltip="Нажмите для запуска">start</a>
+          <a class="clock__stop" data-tooltip="Нажмите для остановки">stop</a>
+        </div>
       </div>
     </div>
-
-
-
-
+    
     <script src="components/clock/clock.js"></script>
 
     <script>
