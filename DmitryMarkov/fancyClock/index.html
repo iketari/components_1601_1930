@@ -1,23 +1,31 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>fancyClock</title>
+  <title>fancyClock demo</title>
   <link rel="stylesheet" href="components/clock/clock.css">
 </head>
 <body>
   <!-- Clock Widget -->
   <div class="clock">
     <div class="clock__face">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
-
+      <img src="components/clock/clock-bg.svg" class="clock__background" />
+      <img src="components/clock/arrow-hours.svg" class="clock__arrow-hours" />
+      <img src="components/clock/arrow-minutes.svg" class="clock__arrow-minutes" />
+      <img src="components/clock/arrow-seconds.svg" class="clock__arrow-seconds" />
     </div>
+
+    <div class="clock__digits">
+      <span class="clock__hours"></span>:
+      <span class="clock__mins"></span>:
+      <span class="clock__secs"></span>
+    </div>
+
     <div class="clock__controls">
       <a href="#" class="clock__start">Start</a>
       <a href="#" class="clock__pause">Pause</a>
       <a href="#" class="clock__reset">Reset</a>
     </div>
+
   </div>
   <!-- Script includes -->
   <script src="components/clock/clock.js"></script>

@@ -92,8 +92,8 @@
       if (this._pausedMoment) {
         this._pauseCounter += Date.now() - this._pausedMoment
       }
+
       let date = new Date(Date.now() - this._pauseCounter)
-      console.log(this._pauseCounter)
       this._updateClock(date)
 
       this._tid = setInterval(() => {
@@ -113,7 +113,6 @@
       clearInterval(this._tid)
       this._pausedMoment = Date.now()
     }
-
   }
 
   // export

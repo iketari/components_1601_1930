@@ -1,0 +1,55 @@
+.clock {
+  position: relative;
+  width: 400px;
+  height: 700px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.clock__background {
+  position: absolute
+}
+
+.clock__arrow-hours {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+
+.clock__arrow-minutes {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+
+.clock__arrow-seconds {
+  position: absolute;
+  left: 200px;
+  top: 200px;
+}
+
+.clock__digits {
+  position: absolute;
+  top: 420px;
+  left: 41%;
+  text-align: center;
+}
+
+.clock__controls {
+  position: absolute;
+  top: 470px;
+  left: 30%;
+  right: auto;
+  text-align: center;
+}
+
+.clock__controls > a {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  padding-top: 15px;
+  box-sizing: border-box;
+}

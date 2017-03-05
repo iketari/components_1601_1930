@@ -1,0 +1,16 @@
+<svg height="400" width="400" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect height="400" width="400" rx="60"></rect>
+  <circle r="170" fill="white" cx="200" cy="200"></circle>
+  <line stroke-width="15" x1="200" y1="35" x2="200" y2="80" stroke="black"></line>
+  <line stroke-width="15" x1="200" y1="320" x2="200" y2="365" stroke="black"></line>
+  <line stroke-width="15" x1="35" y1="200" x2="80" y2="200" stroke="black"></line>
+  <line stroke-width="15" x1="320" y1="200" x2="365" y2="200" stroke="black"></line>
+  <text x="260" y="100" font-size="40" font-family="Helvetica">1</text>
+  <text x="310" y="150" font-size="40" font-family="Helvetica">2</text>
+  <text x="310" y="270" font-size="40" font-family="Helvetica">4</text>
+  <text x="260" y="330" font-size="40" font-family="Helvetica">5</text>
+  <text x="120" y="330" font-size="40" font-family="Helvetica">7</text>
+  <text x="70" y="270" font-size="40" font-family="Helvetica">8</text>
+  <text x="70" y="150" font-size="40" font-family="Helvetica">10</text>
+  <text x="120" y="100" font-size="40" font-family="Helvetica">11</text>
+</svg>
