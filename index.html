@@ -7,42 +7,23 @@
     <link rel="stylesheet" href="components/clock/clock.css" />
   </head>
   <body>
-    <!-- Emmet -->
+    
+    <div class="app"></div>
 
-    <div class="clock">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
 
-      <div class="clock__buttons clock__buttons_controls">
-        <a class="clock__btn clock__btn_start" data-action="start">start</a>
-        <a class="clock__btn clock__btn_stop" data-action="stop">stop</a>
-      </div>
-
-      <div class="clock__buttons clock__buttons_colors">
-        <a class="clock__btn">red</a>
-        <a class="clock__btn">white</a>
-        <a class="clock__btn">blue</a>
-        <a class="clock__btn">green</a>
-        <a class="clock__btn">purple</a>
-        <a class="clock__btn clock__btn_addnew">+</a>
-      </div>
-    </div>
 
     <script src="components/clock/clock.js"></script>
+    <script src="components/chat/chat.js"></script>
+    <script src="components/form/form.js"></script>
 
+    <script src="components/app/app.js"></script>
+
+    <!-- Application start -->
     <script>
-      (function () {
-        'use strict';
-
-        // import
-        let Clock = window.Clock;
-
-        let clocksElArray = [...document.querySelectorAll('.clock')];
-
-        clocksElArray.forEach(el => new Clock({el}));
-      })();
+      'use strict';
+      new window.App({
+        el: document.querySelector('.app')
+      });
     </script>
-
   </body>
 </html>

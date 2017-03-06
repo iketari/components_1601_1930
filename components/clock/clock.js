@@ -59,7 +59,8 @@
       }
 
       _onElClick (event) {
-        console.log('Клик пришелся по элементу: ', event.target, 'Но обработчик события установлен на: ', event.currentTarget);
+        console.log('Клик пришелся по элементу: ', event.target,
+          'Но обработчик события установлен на: ', event.currentTarget);
       }
 
       /**
