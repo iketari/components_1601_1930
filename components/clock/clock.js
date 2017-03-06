@@ -16,6 +16,9 @@
         this._onStartClick = this._onStartClick.bind(this);
         this._onClickLog = this._onClickLog.bind(this);
 
+        this._onMouseOver = this._onMouseOver.bind(this);
+        this._onMouseOut = this._onMouseOut.bind(this);
+
         this._initEvents();
       }
 
@@ -25,7 +28,51 @@
        */
       _initEvents () {
         this.stopEl.addEventListener('click', this._onStopClick);
-        this.startEl.addEventListener('click', this._onStartClick); 
+        this.startEl.addEventListener('click', this._onStartClick);
+
+        this.el.addEventListener('mouseover', this._onMouseOver); 
+        this.el.addEventListener('mouseout', this._onMouseOut); 
+      }
+
+      /**
+       * Отображение подсказок
+       * @param  {MouseEvent} event
+       */
+      _onMouseOver (event) {
+        let target = event.target;
+        let tooltip = target.getAttribute('data-tooltip');
+        if (!tooltip) return;
+
+        let elem = document.createElement('div');
+        elem.innerHTML = tooltip;
+        elem.classList.add('clock_tooltip');
+        this.el.appendChild(elem);          
+
+        let rect = target.getBoundingClientRect();
+        let top = rect.top - elem.offsetHeight - 5;
+        if (top < 0) {
+          top = rect.top + target.offsetHeight + 5;
+        }
+        
+        let left = rect.left - (elem.offsetWidth - target.offsetWidth)/2;
+        if (left < 0) left = 0;
+
+        elem.style.top = top + 'px';
+        elem.style.left = left + 'px';        
+                
+      }
+
+      /**
+       * Удаление подсказок
+       * @param  {MouseEvent} event
+       */
+      _onMouseOut (event) {
+        let target = event.target;
+        let tooltip = target.getAttribute('data-tooltip');
+        if (!tooltip) return;
+
+        let elem = this.el.querySelector('.clock_tooltip');
+        elem.remove();
       }
 
       /**
