@@ -67,7 +67,6 @@
      */
     _removeClass (className) {
       let elem = document.querySelector('.clock__controls')
-      console.log(elem.children)
       ;[...elem.children].forEach((el) => {
         if (el.classList.contains(className)) {
           el.classList.remove(className)
@@ -105,8 +104,11 @@
      */
     _onStopClick (event) {
       event.preventDefault()
+      let elem = document.querySelector('.clock__start')
 
       this.stop()
+      this._removeClass('disabled')
+      elem.classList.add('disabled')
       this._onClickLog(event)
     }
 
@@ -190,7 +192,9 @@
     _onPauseLeave (event) {
       event.preventDefault()
 
-      this.hideTooltip()
+      if (!event.target.classList.contains('disabled')) {
+        this.hideTooltip()
+      }
     }
 
     /**
