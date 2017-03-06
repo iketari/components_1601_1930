@@ -9,6 +9,10 @@
       this.mins = this.el.querySelector('.clock__mins')
       this.secs = this.el.querySelector('.clock__secs')
 
+      this.hoursArrow = this.el.querySelector('.clock__arrow-hours')
+      this.minsArrow = this.el.querySelector('.clock__arrow-minutes')
+      this.secsArrow = this.el.querySelector('.clock__arrow-seconds')
+
       this.stopEl = this.el.querySelector('.clock__reset')
       this.startEl = this.el.querySelector('.clock__start')
       this.pauseEl = this.el.querySelector('.clock__pause')
@@ -65,7 +69,7 @@
 
       this.stop()
       this._onClickLog(event)
-  }
+    }
 
     /**
      * Действие при паузе часиков
@@ -79,13 +83,26 @@
     }
 
     /**
+     * Добавляет нули в представление времени
+     * @param  {Number} num
+     */
+    _addZero (num) {
+      if (num < 10) num = '0' + num
+      return num
+    }
+
+    /**
      * Обновляет часики
      * @param  {Date Object} date
      */
     _updateClock (date) {
-      this.hours.innerHTML = date.getHours()
-      this.mins.innerHTML = date.getMinutes()
-      this.secs.innerHTML = date.getSeconds()
+      this.hours.innerHTML = this._addZero(date.getHours())
+      this.mins.innerHTML = this._addZero(date.getMinutes())
+      this.secs.innerHTML = this._addZero(date.getSeconds())
+
+      this.hoursArrow.style.transform = `translateX(5px) rotate(${ 180 + date.getHours() * 30 }deg)`
+      this.minsArrow.style.transform = `translateX(2px) rotate(${ 180 + date.getMinutes() * 6 }deg)`
+      this.secsArrow.style.transform = `rotate(${ 180 + date.getSeconds() * 6 }deg)`
     }
 
     start () {

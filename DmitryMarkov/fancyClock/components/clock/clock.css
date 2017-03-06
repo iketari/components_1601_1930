@@ -11,20 +11,23 @@
 
 .clock__arrow-hours {
   position: absolute;
-  left: 200px;
+  left: 194px;
   top: 200px;
+  transform-origin: 0 0;
 }
 
 .clock__arrow-minutes {
   position: absolute;
-  left: 200px;
+  left: 195px;
   top: 200px;
+  transform-origin: 0 0;
 }
 
 .clock__arrow-seconds {
   position: absolute;
-  left: 200px;
+  left: 198px;
   top: 200px;
+  transform-origin: 0 0;
 }
 
 .clock__digits {
@@ -52,4 +55,10 @@
   height: 50px;
   padding-top: 15px;
   box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.arr-trans2 {
+  transform-origin: 0 0;
+  transform: rotate(180deg)
 }
