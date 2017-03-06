@@ -1,0 +1,10 @@
+.wrapper {
+  display: block;
+  margin: 0 auto;
+  padding: 30px;
+  min-height: 300px;
+  width: 800px;
+  background-color: beige;
+  border: 5px solid #9b4dca;
+  border-radius: 5px;
+}
