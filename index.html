@@ -7,45 +7,23 @@
     <link rel="stylesheet" href="components/clock/clock.css" />
   </head>
   <body>
-    <!-- Emmet -->
-
-    <div class="clock">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
-
-      <div class="clock__tooltips">
-        <button data-tooltip="подсказка длиннее, чем элемент">Короткая кнопка</button>
-        <button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>
-      </div>
-      
-      <div class="clock__buttons">
-        <a class="clock__start">start</a>
-        <a class="clock__stop">stop</a>
-      </div>
-
-      
-
-      <div height='100' ></div>
-    </div>
-
+    
+    <div class="app"></div>
 
 
 
     <script src="components/clock/clock.js"></script>
+    <script src="components/chat/chat.js"></script>
+    <script src="components/form/form.js"></script>
 
+    <script src="components/app/app.js"></script>
+
+    <!-- Application start -->
     <script>
-      (function () {
-        'use strict';
-
-        // import
-        let Clock = window.Clock;
-
-        let clocksElArray = [...document.querySelectorAll('.clock')];
-
-        clocksElArray.forEach(el => new Clock({el}));
-      })();
+      'use strict';
+      new window.App({
+        el: document.querySelector('.app')
+      });
     </script>
-
   </body>
 </html>

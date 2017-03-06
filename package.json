@@ -1,0 +1,15 @@
+{
+  "name": "components_1601_1930",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "hint": "jshint components/**/*.js"
+  },
+  "keywords": [],
+  "author": "Artsiom Mezin",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.4"
+  }
+}

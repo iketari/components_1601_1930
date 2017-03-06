@@ -9,12 +9,16 @@
         this.mins = this.el.querySelector('.clock__mins');
         this.secs = this.el.querySelector('.clock__secs');
 
-        this.stopEl = this.el.querySelector('.clock__stop');
-        this.startEl = this.el.querySelector('.clock__start');
+        this.controlsBtns = this.el.querySelector('.clock__buttons_controls');
 
-        this._onStopClick = this._onStopClick.bind(this);
-        this._onStartClick = this._onStartClick.bind(this);
+        this.coloredBtns = this.el.querySelector('.clock__buttons_colors');
+        this.addNewBtn = this.el.querySelector('.clock__btn_addnew');
+
+        this._onControlClick = this._onControlClick.bind(this);
+
         this._onClickLog = this._onClickLog.bind(this);
+        this._onElClick = this._onElClick.bind(this);
+        this._onColorBtnClick = this._onColorBtnClick.bind(this);
 
         this._onMouseOver = this._onMouseOver.bind(this);
         this._onMouseOut = this._onMouseOut.bind(this);
@@ -27,11 +31,42 @@
        * @private
        */
       _initEvents () {
-        this.stopEl.addEventListener('click', this._onStopClick);
-        this.startEl.addEventListener('click', this._onStartClick);
+        this.el.addEventListener('click', this._onElClick);
+
+        this.coloredBtns.addEventListener('click', this._onColorBtnClick);
+        this.controlsBtns.addEventListener('click', this._onControlClick);        
 
         this.el.addEventListener('mouseover', this._onMouseOver); 
         this.el.addEventListener('mouseout', this._onMouseOut); 
+      }
+
+      _onControlClick (event) {
+        let el = event.target;
+        let action = el.dataset.action;
+        let method = `on${action}`;
+
+        try {
+          this[method](event);
+        } catch (e) {
+          console.log(`Нет метода ${method} в`, this);
+        }
+      }
+
+      /**
+       * Клик по цветной кнопке
+       * @param {MouseEvent} event
+       */
+      _onColorBtnClick (event) {
+        if (event.target === this.addNewBtn) {
+          this._addColoredBtn();
+        } else {
+          this.el.style.backgroundColor = event.target.textContent;
+        }
+      }
+
+      _onElClick (event) {
+        console.log('Клик пришелся по элементу: ', event.target,
+          'Но обработчик события установлен на: ', event.currentTarget);
       }
 
       /**
@@ -87,7 +122,7 @@
        * Дейстиве при старте часиков
        * @param  {MouseEvent} event
        */
-      _onStartClick (event) {
+      onstart (event) {
         event.preventDefault();
 
         this.start();
@@ -98,11 +133,21 @@
        * Дейстиве при стопе часиков
        * @param  {MouseEvent} event
        */
-      _onStopClick (event) {
+      onstop (event) {
           event.preventDefault();
 
           this.stop();  
           this._onClickLog(event);
+      }
+
+      _addColoredBtn () {
+        let color = prompt('Введите цвет', 'black');
+
+        let btn = document.createElement('a');
+        btn.classList.add('clock__btn');
+        btn.textContent = color;
+
+        this.coloredBtns.insertBefore(btn, this.addNewBtn);
       }
 
       start () {
