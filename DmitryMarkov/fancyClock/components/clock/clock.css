@@ -1,3 +1,7 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
 .clock {
   position: relative;
   width: 400px;
@@ -11,14 +15,14 @@
 
 .clock__arrow-hours {
   position: absolute;
-  left: 194px;
+  left: 199px;
   top: 200px;
   transform-origin: 0 0;
 }
 
 .clock__arrow-minutes {
   position: absolute;
-  left: 195px;
+  left: 199px;
   top: 200px;
   transform-origin: 0 0;
 }
@@ -58,7 +62,17 @@
   margin-right: 5px;
 }
 
-.arr-trans2 {
-  transform-origin: 0 0;
-  transform: rotate(180deg)
+.clock__controls > a:hover {
+  color: fuchsia;
+  border-color: fuchsia;
+}
+
+.tooltip {
+  z-index: 99;
+  position: absolute;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
 }
