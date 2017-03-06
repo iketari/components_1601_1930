@@ -75,4 +75,11 @@ body {
   display: inline-block;
   background-color: white;
   padding: 10px;
+  box-shadow: 2px 2px 4px 0 #777;
+}
+
+.disabled {
+  color: darkgrey !important;
+  border-color: darkgrey !important;
+  cursor: not-allowed;
 }

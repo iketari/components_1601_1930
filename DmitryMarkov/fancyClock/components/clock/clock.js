@@ -21,6 +21,12 @@
       this._onStartClick = this._onStartClick.bind(this)
       this._onPauseClick = this._onPauseClick.bind(this)
 
+      this._onStopEnter = this._onStopEnter.bind(this)
+      this._onStopLeave = this._onStopLeave.bind(this)
+
+      this._onStartEnter = this._onStartEnter.bind(this)
+      this._onStartLeave = this._onStartLeave.bind(this)
+
       this._onPauseEnter = this._onPauseEnter.bind(this)
       this._onPauseLeave = this._onPauseLeave.bind(this)
 
@@ -43,6 +49,12 @@
       this.startEl.addEventListener('click', this._onStartClick)
       this.pauseEl.addEventListener('click', this._onPauseClick)
 
+      this.stopEl.addEventListener('mouseover', this._onStopEnter)
+      this.stopEl.addEventListener('mouseout', this._onStopLeave)
+
+      this.startEl.addEventListener('mouseover', this._onStartEnter)
+      this.startEl.addEventListener('mouseout', this._onStartLeave)
+
       this.pauseEl.addEventListener('mouseover', this._onPauseEnter)
       this.pauseEl.addEventListener('mouseout', this._onPauseLeave)
 
@@ -50,11 +62,25 @@
     }
 
     /**
+     * Удалить классы
+     * @param  {String} className
+     */
+    _removeClass (className) {
+      let elem = document.querySelector('.clock__controls')
+      console.log(elem.children)
+      ;[...elem.children].forEach((el) => {
+        if (el.classList.contains(className)) {
+          el.classList.remove(className)
+        }
+      })
+    }
+
+    /**
      * Логирование кликов
      * @param  {MouseEvent} event
      */
     _onClickLog (event) {
-      console.log(`Нажата клавиша: ${event.target.textContent}`);
+      console.log(`Нажата клавиша: ${event.target.textContent}`)
     }
 
     /**
@@ -64,8 +90,13 @@
     _onStartClick (event) {
       event.preventDefault()
 
-      this.start()
-      this._onClickLog(event)
+      if (!event.target.classList.contains('disabled')) {
+        this.start()
+        this._onClickLog(event)
+        this._removeClass('disabled')
+        event.target.classList.add('disabled')
+        this.hideTooltip()
+      }
     }
 
     /**
@@ -86,8 +117,58 @@
     _onPauseClick (event) {
       event.preventDefault()
 
-      this.pause()
-      this._onClickLog(event)
+
+      if (!event.target.classList.contains('disabled')) {
+        this.pause()
+        this._onClickLog(event)
+        this._removeClass('disabled')
+        event.target.classList.add('disabled')
+        this.hideTooltip()
+      }
+    }
+
+    /**
+     * Действие при ховере над резетом
+     * @param  {MouseEvent} event
+     */
+    _onStopEnter (event) {
+      event.preventDefault()
+
+      this.showTooltip(event)
+    }
+
+    /**
+     * Действие при уходе мышки с резета
+     * @param  {MouseEvent} event
+     */
+    _onStopLeave (event) {
+      event.preventDefault()
+
+      this.hideTooltip()
+    }
+
+    /**
+     * Действие при ховере над стартом
+     * @param  {MouseEvent} event
+     */
+    _onStartEnter (event) {
+      event.preventDefault()
+
+      if (!event.target.classList.contains('disabled')) {
+        this.showTooltip(event)
+      }
+    }
+
+    /**
+     * Действие при уходе мышки со старта
+     * @param  {MouseEvent} event
+     */
+    _onStartLeave (event) {
+      event.preventDefault()
+
+      if (!event.target.classList.contains('disabled')) {
+        this.hideTooltip()
+      }
     }
 
     /**
@@ -97,11 +178,9 @@
     _onPauseEnter (event) {
       event.preventDefault()
 
-      // console.log(coords)
-      console.log(`мышка над паузой`)
-      // console.log(event)
-      this.showTooltip(event)
-
+      if (!event.target.classList.contains('disabled')) {
+        this.showTooltip(event)
+      }
     }
 
     /**
@@ -176,6 +255,7 @@
       document.body.appendChild(this._tooltip)
 
       const maxHeight = coords.top + coords.height  + this._tooltip.offsetHeight + padding
+      const leftOffset = coords.left + coords.width / 2 - this._tooltip.offsetWidth / 2
 
       if (maxHeight < window.innerHeight) {
         this._tooltip.style.top = coords.top + coords.height + padding
@@ -183,11 +263,7 @@
         this._tooltip.style.top = coords.top - this._tooltip.offsetHeight - padding
       }
 
-      const leftOffset = coords.left + coords.width / 2 - this._tooltip.offsetWidth / 2
-
       this._tooltip.style.left = leftOffset
-
-      // console.log(coords.left  , this._tooltip.offsetWidth, leftOffset)
     }
 
     hideTooltip () {
