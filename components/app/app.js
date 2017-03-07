@@ -5,13 +5,14 @@
   const Chat = window.Chat;
   const Form = window.Form;
   const Wrapper = window.Wrapper;
+  const User = window.User;
   
   class App {
     constructor(options) {
 	  this.el = options.el; 
          
 	  this._createComponents();
-	  this._initMediate();  
+	  this._initMediate();
       
       this.el.appendChild(this.wrapper.el);
 	  this.wrapper.el.appendChild(this.chat.el);
@@ -30,11 +31,13 @@
 	  this.form = new Form({
 	  	el: document.createElement('div')
 	  });
+      
+      this.user = new User();
 	}
     
 	_initMediate() {
-	  this.form.onSubmit((data) => {
-	  	this.chat.addMessage(data);
+	  this.form.onSubmit( () => {
+	  	this.chat.addMessage(this.form.getData(this.user));
 	  });
          
 	  this.chat.onScrollStart(() => {

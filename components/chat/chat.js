@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-
+    
   /**
   * @typedef {Object} ChatMessage
   *
@@ -12,15 +12,15 @@
     constructor(options) {
       this.el = options.el;
       this.el.classList.add("chat");
-      this.el.innerHTML = '<h3>Я чатик</h3>';
     }
     
     /**
     * Добавить новое сообщение в чат
     * @param {ChatMessage} data
     */
-    addMessage (data) {
-      // ...
+    addMessage(data) {
+      if (data.message) this.el.innerHTML += 
+          `<p><b>${data.username}</b>: <span class="message-date">${data.submitted}</span><br>${data.message}</p>`;
     }
     
     onScrollStart (cb) {
