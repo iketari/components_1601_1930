@@ -1,29 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Часики!</title>
 
-    <link rel="stylesheet" href="components/clock/clock.css" />
-  </head>
-  <body>
-    
-    <div class="app"></div>
+<head>
+  <meta charset="utf-8">
+  <title>Часики!</title>
+
+  <!--<link rel="stylesheet" href="components/clock/clock.css" />-->
+</head>
+
+<body>
+
+  <div class="app"></div>
 
 
 
-    <script src="components/clock/clock.js"></script>
-    <script src="components/chat/chat.js"></script>
-    <script src="components/form/form.js"></script>
+  <script src="components/clock/clock.js"></script>
+  <script src="components/digitalClock/digitalClock.js"></script>
+  <script src="components/chat/chat.js"></script>
+  <script src="components/form/form.js"></script>
 
-    <script src="components/app/app.js"></script>
+  <script src="components/app/app.js"></script>
 
-    <!-- Application start -->
-    <script>
-      'use strict';
-      new window.App({
-        el: document.querySelector('.app')
-      });
-    </script>
-  </body>
+  <!-- Application start -->
+  <script>
+    'use strict';
+    new window.App({
+      el: document.querySelector('.app'),
+      head: document.head
+    });
+  </script>
+</body>
+
 </html>

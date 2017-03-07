@@ -4,29 +4,37 @@
 	//import
 	const Chat = window.Chat;
 	const Form = window.Form;
+	const DigitalClock = window.DigitalClock;
 
 	class App {
-		constructor(options) {
-			this.el = options.el;
+		constructor({el, head}) {
+			this.el = el;
+			this.head = head;			
 
 			this._createComponents();
 			this._initMediate();
 
+			this.head.appendChild(this.clock.style);
+			this.el.appendChild(this.clock.el);
 			this.el.appendChild(this.chat.el);
 			this.el.appendChild(this.form.el);
 		}
 
-		_createComponents () {
+		_createComponents() {
+			this.clock = new DigitalClock({
+				path: 'components'
+			});
+
 			this.chat = new Chat({
 				el: document.createElement('div')
 			});
 
 			this.form = new Form({
-				el: document.createElement('div')
+				el: document.createElement('div')				
 			});
 		}
 
-		_initMediate () {
+		_initMediate() {
 			this.form.onSubmit((data) => {
 				this.chat.addMessage(data);
 			});
@@ -39,7 +47,7 @@
 				this.form.enable();
 			});
 		}
-	
+
 		// methods
 	}
 
