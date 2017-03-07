@@ -2,9 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Часики!</title>
-
+    <title>Чатик!</title>
+    
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+    
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
+    
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
+    
     <link rel="stylesheet" href="components/clock/clock.css" />
+    <link rel="stylesheet" href="components/chat/chat.css" />
+    <link rel="stylesheet" href="components/form/form.css" />
+    <link rel="stylesheet" href="components/chatWrapper/wrapper.css" />
   </head>
   <body>
     
@@ -13,14 +25,17 @@
 
 
     <script src="components/clock/clock.js"></script>
+    <script src="components/chatWrapper/wrapper.js"></script>
     <script src="components/chat/chat.js"></script>
     <script src="components/form/form.js"></script>
+    <script src="components/user/user.js"></script>
 
     <script src="components/app/app.js"></script>
 
     <!-- Application start -->
     <script>
       'use strict';
+      
       new window.App({
         el: document.querySelector('.app')
       });

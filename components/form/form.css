@@ -1,0 +1,27 @@
+.form {
+  margin-bottom: 0;
+}
+
+.fieldset {
+  margin-bottom: 0;
+}
+
+#commentField {
+  display: block;
+  float: left;
+  min-height: 65px;
+  width: 80%;
+  margin-bottom: 0;
+  resize: vertical;
+}
+
+.button {
+  display: block;
+  float: right;
+  width: 15%;
+  margin-bottom: 0;
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 20px;
+}

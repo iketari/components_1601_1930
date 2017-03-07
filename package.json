@@ -7,7 +7,7 @@
     "hint": "jshint components/**/*.js"
   },
   "keywords": [],
-  "author": "Artsiom Mezin",
+  "author": "Artsiom Mezin, Pavel Kovalenkov",
   "license": "ISC",
   "devDependencies": {
     "jshint": "^2.9.4"
