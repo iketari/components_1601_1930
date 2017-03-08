@@ -14,6 +14,13 @@
 
 			this.el.appendChild(this.chat.el);
 			this.el.appendChild(this.form.el);
+
+			this.render();
+		}
+
+		render () {
+			this.chat.render();
+			this.form.render();
 		}
 
 		_createComponents () {

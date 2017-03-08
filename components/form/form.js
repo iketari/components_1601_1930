@@ -4,8 +4,15 @@
 	class Form {
 		constructor(options) {
 			this.el = options.el;
+		}
 
-			this.el.innerHTML = '<h3>Я форма</h3>';
+		render () {
+			this.el.innerHTML = `
+				<form>
+					<input type="text" />
+					<input type="button" value="Отправить" />
+				</form>
+			`;
 		}
 	
 		onSubmit (cb) {
