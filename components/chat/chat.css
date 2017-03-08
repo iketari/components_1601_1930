@@ -1,9 +1,9 @@
-.container{
-  width:400px;
+.chat__container {
+  width: 100%;
   display:block;
-  margin:0 auto;
-  box-shadow:0 2px 5px rgba(0,0,0,0.4);
+  overflow: hidden;
 }
+
 .header{
   padding:20px 20px 18px 20px;
   background:#5FB471;
@@ -24,12 +24,16 @@
   margin-top:-5px;
   border-radius:2px;
 }
-.chat-box, .enter-message{
-  background:#ECECEC;
-  padding:0 20px;
-  color:#a1a1a1;
+
+.chat__box {
+  background: #ECECEC;
+  padding: 0 20px;
+  color: #a1a1a1;
+  overflow-y: auto;
+  height: 70vh;
 }
-.chat-box .message-box{
+
+.chat__box .message-box{
   padding:18px 0 10px;
   clear:both;
 }
@@ -44,13 +48,13 @@
   height:43px;
   border-radius:5px;
 }
-.picture span{
-  font-weight:bold;
-  font-size:12px;
-  clear:both;
-  display:block;
-  text-align:center;
-  margin-top:3px;
+.picture span {
+  font-weight: bold;
+  font-size: 10px;
+  clear: both;
+  display: block;
+  text-align: center;
+  margin-top: 3px;
 }
 .message{
   background:#fff;

@@ -35,7 +35,11 @@
 
 		_initMediate () {
 			this.form.onSubmit((data) => {
-				this.chat.addMessage(data);
+				this.chat.addMessage({
+					text: data.message.value
+				});
+				this.chat.render();
+				this.form.reset();
 			});
 
 			this.chat.onScrollStart(() => {

@@ -4,21 +4,60 @@
 	class Form {
 		constructor(options) {
 			this.el = options.el;
+
+			this._initEvents();
 		}
 
 		render () {
 			this.el.innerHTML = `
 				<form>
-					<input type="text" />
-					<input type="button" value="Отправить" />
+					<textarea name="message" type="text"></textarea>
+					<input type="submit" value="Отправить" />
 				</form>
 			`;
+
+			this.formEl = this.el.querySelector('form');
+		}
+
+		/**
+		 * Установка callback отправки формы
+		 * @param  {Function} cb
+		 */
+		onSubmit (cb) {
+			this._submitCallback = cb;
+		}
+
+		reset () {
+			this.formEl.reset();
 		}
 	
-		onSubmit (cb) {
-
+		_initEvents () {
+			this.el.addEventListener('submit', this._onSubmit.bind(this));
 		}
-		// methods
+
+		_onSubmit (event) {
+			event.preventDefault();
+			let formData = this._getFormData();
+
+			this._submitCallback(formData);
+		}
+
+		_getInputs () {
+			return this.el.querySelectorAll('input, textarea');
+		}
+
+		_getFormData () {
+			let formData = {};
+
+			[...this._getInputs()].forEach(input => {
+				formData[input.name] = {
+					value: input.value
+				}
+			});
+
+			return formData;
+		}
+
 	}
 
 	//export

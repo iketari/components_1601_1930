@@ -8,3 +8,8 @@ a{
   color:#fff;
   text-decoration:none;
 }
+
+.app {
+	width: 400px;
+	margin:0 auto;
+}

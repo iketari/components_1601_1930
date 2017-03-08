@@ -9,38 +9,22 @@
 	 */
 
 	class Chat {
-		constructor(options) {
-			this.el = options.el;
+		constructor({el, data = {messages: []}}) {
+			this.el = el;
+			this.data = data;
+
+			this._getUserName();
 		}
 
 		render () {
 			this.el.innerHTML = `
 			<div class="chat">
-				<div class="container">
+				<div class="chat__container">
 				  <div class="header">
 				    <h2>Чат</h2>
 				  </div>
-				  <div class="chat-box">
-				    <div class="message-box left-img">
-				      <div class="picture">
-				        <img src="http://www.gravatar.com/avatar/453cb640b1f272fb50086052e0c9e013.png" title="user name"/>
-				        <span class="time">10 mins</span>
-				      </div>
-				      <div class="message">
-				        <span>Bobby Giangeruso</span>
-				        <p>Hey Mike, how are you doing?</p>
-				      </div>
-				    </div>
-				    <div class="message-box right-img">
-				      <div class="picture">
-				        <img src="http://www.gravatar.com/avatar/a58d2af91e41a2accfd8bcedcd7a427e.png" title="user name"/>
-				        <span class="time">2 mins</span>
-				      </div>
-				      <div class="message">
-				        <span>Mike Moloney</span>
-				        <p>Pretty good, Eating nutella, nommommom</p>
-				      </div>
-				    </div>
+				  <div class="chat__box">
+				    ${this._generateMessages()}
 				  </div>
 				</div>
 			</div>
@@ -52,18 +36,49 @@
 		 * @param {ChatMessage} data
 		 */
 		addMessage (data) {
-			// ...
+			this.data.messages.push({
+				avatar: 'http://i.imgur.com/FHMnsVNt.jpg',
+				name: data.name || this.data.user,
+				text: data.text,
+				date: data.date || new Date()
+			});
 		}
 
 		onScrollStart (cb) {
-
+			console.info('Метод onScrollStart не реализован');
 		}
 
 		onScrollEnd (cb) {
-
+			console.info('Метод onScrollEnd не реализован');
 		}
-	
-		// methods
+
+		_getUserName () {
+			//TODO: справшивать
+			this.data.user = 'Tim';
+		}
+
+		_generateMessages () {
+			let data = this.data.messages || [];
+
+			if (!data.length) {
+				return `<h3>Сообщений нет</h3>`;
+			}
+
+			return data.map(item => {
+				return `
+					<div class="message-box left-img">
+						<div class="picture">
+							<img src="${item.avatar}" title="user name"/>
+							<span class="time">${item.date.toTimeString().split(' ')[0]}</span>
+						</div>
+						<div class="message">
+							<span>${item.name}</span>
+							<p>${item.text}</p>
+						</div>
+					</div>
+				`;
+			})
+		}
 	}
 
 
