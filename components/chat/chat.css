@@ -1,0 +1,6 @@
+.chat__messages {
+    height: 100%;
+}
+.chat__messages option {
+    font-weight: bold;
+}

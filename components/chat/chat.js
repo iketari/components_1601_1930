@@ -6,31 +6,40 @@
 	 *
  	 * @property {string} text - Текст сообщения
  	 * @property {string} email - Email отправителя сообщения
+ 	 * @property {string} time - время отправления сообщения
 	 */
 
 	class Chat {
-		constructor(options) {
-			this.el = options.el;
+		constructor({ el }) {
+			this.el = el;
 
-			this.el.innerHTML = '<h3>Я чатик</h3>';
+			this.messages = this.el.querySelector('.chat__messages');
 		}
 
 		/**
 		 * Добавить новое сообщение в чат
 		 * @param {ChatMessage} data
 		 */
-		addMessage (data) {
-			// ...
+		addMessage(data) {
+			let option = document.createElement('option');
+
+			option.text = `${data.time} (${data.email}): ${data.text}`;
+			option.style.color = this.getHexColor((Math.random() * 1000000).toFixed());
+			this.messages.add(option);
 		}
 
-		onScrollStart (cb) {
+		getHexColor(number) {
+			return '#' + (number).toString(16).slice(-6);
+		}
+
+		onScrollStart(cb) {
 
 		}
 
-		onScrollEnd (cb) {
+		onScrollEnd(cb) {
 
 		}
-	
+
 		// methods
 	}
 

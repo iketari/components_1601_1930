@@ -1,29 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Часики!</title>
 
-    <link rel="stylesheet" href="components/clock/clock.css" />
-  </head>
-  <body>
-    
-    <div class="app"></div>
+<head>
+  <meta charset="utf-8">
+  <title>Часики!</title>
+  <!--<link rel="stylesheet" href="components/clock/clock.css" />-->
+  <link rel="stylesheet" href="styles/milligram.min.css">
+  <link rel="stylesheet" href="components/app/app.css" />
+  <link rel="stylesheet" href="components/chat/chat.css" />
+  <link rel="stylesheet" href="components/form/form.css" />
+</head>
+
+<body>
+
+  <div class="app">
+    <div class="chat">
+      <select class="chat__messages" size="40">
+      </select>
+    </div>
+
+    <form class="form" method="post">
+      <div class="form__email">
+        <label for="form__email1">Email:</label>
+        <input class="form__email_text" id="form__email1" placeholder="Email"></input>
+      </div>
+      <textarea class="form__message"></textarea>
+      <input class="form__submit" type="submit"></input>
+    </form>
+  </div>
 
 
 
-    <script src="components/clock/clock.js"></script>
-    <script src="components/chat/chat.js"></script>
-    <script src="components/form/form.js"></script>
+  <script src="components/clock/clock.js"></script>
+  <script src="components/digitalClock/digitalClock.js"></script>
+  <script src="components/chat/chat.js"></script>
+  <script src="components/form/form.js"></script>
 
-    <script src="components/app/app.js"></script>
+  <script src="components/app/app.js"></script>
 
-    <!-- Application start -->
-    <script>
-      'use strict';
-      new window.App({
-        el: document.querySelector('.app')
-      });
-    </script>
-  </body>
+  <!-- Application start -->
+  <script>
+    'use strict';
+    new window.App({
+      el: document.querySelector('.app'),
+      head: document.head
+    });
+  </script>
+</body>
+
 </html>

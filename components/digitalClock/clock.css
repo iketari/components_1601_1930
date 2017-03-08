@@ -1,0 +1,15 @@
+.clock {
+	position: fixed;
+	top: 0;
+	right: 0;
+	margin: 10px;
+	padding: 5px 10px;
+	background-color: #333;
+	color: #fff;
+	text-align: center;
+	font-size: 20px;
+
+	border: orangered 3px ridge;
+	border-radius: 10px;
+	font-family: Arial, Helvetica, sans-serif, monospace;
+}
