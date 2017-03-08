@@ -93,8 +93,7 @@
         if (left < 0) left = 0;
 
         elem.style.top = top + 'px';
-        elem.style.left = left + 'px';        
-                
+        elem.style.left = left + 'px';
       }
 
       /**

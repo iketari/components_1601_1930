@@ -1,0 +1,9 @@
+.form__message {
+    margin: 0;
+}
+.form__submit {
+    float: right;    
+}
+.form__email label {
+    display: inline;
+}

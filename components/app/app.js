@@ -7,17 +7,17 @@
 	const DigitalClock = window.DigitalClock;
 
 	class App {
-		constructor({el, head}) {
+		constructor({ el, head }) {
 			this.el = el;
-			this.head = head;			
+			this.head = head;
 
 			this._createComponents();
 			this._initMediate();
 
 			this.head.appendChild(this.clock.style);
 			this.el.appendChild(this.clock.el);
-			this.el.appendChild(this.chat.el);
-			this.el.appendChild(this.form.el);
+			//this.el.appendChild(this.chat.el);
+			//this.el.appendChild(this.form.el);
 		}
 
 		_createComponents() {
@@ -26,16 +26,17 @@
 			});
 
 			this.chat = new Chat({
-				el: document.createElement('div')
+				el: this.el.querySelector('.chat')
 			});
 
 			this.form = new Form({
-				el: document.createElement('div')				
+				el: this.el.querySelector('.form')
 			});
 		}
 
 		_initMediate() {
-			this.form.onSubmit((data) => {
+			this.form.addActionOnSubmit((data) => {
+				data.time = this.clock.getTime(new Date());
 				this.chat.addMessage(data);
 			});
 
