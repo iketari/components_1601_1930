@@ -34,20 +34,15 @@
 		}
 
 		_initMediate () {
-			this.form.onSubmit((data) => {
+			this.form.on('message', (event) => {
+				let data = event.detail;
+
+
 				this.chat.addMessage({
 					text: data.message.value
 				});
 				this.chat.render();
 				this.form.reset();
-			});
-
-			this.chat.onScrollStart(() => {
-				this.form.disable();
-			});
-
-			this.chat.onScrollEnd(() => {
-				this.form.enable();
 			});
 		}
 	

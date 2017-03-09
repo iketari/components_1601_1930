@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/static .",
+    "start": "npm run pug_tmpl && ./node_modules/.bin/static .",
+    "pug_tmpl": "pug --client components/chat/chat.pug --extension pug.js --name chat_tmpl",
     "hint": "jshint components/**/*.js"
   },
   "keywords": [],
@@ -12,6 +13,7 @@
   "license": "ISC",
   "devDependencies": {
     "jshint": "^2.9.4",
-    "node-static": "^0.7.9"
+    "node-static": "^0.7.9",
+    "pug": "^2.0.0-beta11"
   }
 }
