@@ -2,23 +2,30 @@
   'use strict';
 
   class Clock {
-      constructor (opts) {
-        this.el = opts.el;
+      /**
+       * @param {Object} options
+       * @param {HTMLElement} options.el
+       */
+      constructor ({el}) {
+        this.el = el;
 
-        this.hours = this.el.querySelector('.clock__hours');
-        this.mins = this.el.querySelector('.clock__mins');
-        this.secs = this.el.querySelector('.clock__secs');
+        const mapSelectors = {
+            hours: 'hours',
+            mins: 'mins',
+            secs: 'secs',
+            controlsBtns: 'buttons_controls',
+            coloredBtns: 'buttons_colors',
+            addNewBtn: 'btn_addnew'
+        };
 
-        this.controlsBtns = this.el.querySelector('.clock__buttons_controls');
+        Object.keys(mapSelectors).forEach((item) => {
+            this[item] = this.el.querySelector(`.clock__${mapSelectors[item]}`);
+        });
 
-        this.coloredBtns = this.el.querySelector('.clock__buttons_colors');
-        this.addNewBtn = this.el.querySelector('.clock__btn_addnew');
-
-        this._onControlClick = this._onControlClick.bind(this);
-
-        this._onClickLog = this._onClickLog.bind(this);
-        this._onElClick = this._onElClick.bind(this);
-        this._onColorBtnClick = this._onColorBtnClick.bind(this);
+        ['_onControlClick', '_onClickLog', '_onElClick', '_onColorBtnClick']
+            .forEach((item) => {
+                this[item] = this[item].bind(this)
+            });
 
         this._initEvents();
       }
@@ -50,17 +57,17 @@
        * Клик по цветной кнопке
        * @param {MouseEvent} event
        */
-      _onColorBtnClick (event) {
-        if (event.target === this.addNewBtn) {
+      _onColorBtnClick ({target}) {
+        if (target === this.addNewBtn) {
           this._addColoredBtn();
         } else {
-          this.el.style.backgroundColor = event.target.textContent;
+          this.el.style.backgroundColor = target.textContent;
         }
       }
 
-      _onElClick (event) {
-        console.log('Клик пришелся по элементу: ', event.target,
-          'Но обработчик события установлен на: ', event.currentTarget);
+      _onElClick ({target, currentTarget}) {
+        console.log('Клик пришелся по элементу: ', target,
+          'Но обработчик события установлен на: ', currentTarget);
       }
 
       /**
@@ -89,7 +96,7 @@
       onstop (event) {
           event.preventDefault();
 
-          this.stop();  
+          this.stop();
           this._onClickLog(event);
       }
 
