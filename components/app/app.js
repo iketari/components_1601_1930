@@ -2,12 +2,15 @@
 	'use strict';
 
 	//import
-	const Chat = window.Chat;
-	const Form = window.Form;
+	const {Chat, Form} = window;
 
 	class App {
-		constructor(options) {
-			this.el = options.el;
+		/**
+		 * @param {Object} options
+		 * @param {HTMLElement} options.el
+		 */
+		constructor({el}) {
+			this.el = el;
 
 			this._createComponents();
 			this._initMediate();
@@ -45,7 +48,7 @@
 				this.form.reset();
 			});
 		}
-	
+
 		// methods
 	}
 
