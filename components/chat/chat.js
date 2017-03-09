@@ -28,7 +28,7 @@
 				  </div>
 				</div>
 			</div>
-			`
+			`;
 		}
 
 		/**
@@ -58,7 +58,7 @@
 		}
 
 		_generateMessages () {
-			let data = this.data.messages || [];
+			let data = this.data.messages;
 
 			if (!data.length) {
 				return `<h3>Сообщений нет</h3>`;
@@ -77,7 +77,7 @@
 						</div>
 					</div>
 				`;
-			})
+			}).join('');
 		}
 	}
 

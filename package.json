@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "./node_modules/.bin/static .",
     "hint": "jshint components/**/*.js"
   },
   "keywords": [],
   "author": "Artsiom Mezin",
   "license": "ISC",
   "devDependencies": {
-    "jshint": "^2.9.4"
+    "jshint": "^2.9.4",
+    "node-static": "^0.7.9"
   }
 }
