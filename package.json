@@ -1,0 +1,19 @@
+{
+  "name": "components_1601_1930",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run pug_tmpl && ./node_modules/.bin/static .",
+    "pug_tmpl": "pug --client components/chat/chat.pug --extension pug.js --name chat_tmpl",
+    "hint": "jshint components/**/*.js"
+  },
+  "keywords": [],
+  "author": "Artsiom Mezin",
+  "license": "ISC",
+  "devDependencies": {
+    "jshint": "^2.9.4",
+    "node-static": "^0.7.9",
+    "pug": "^2.0.0-beta11"
+  }
+}

@@ -2,41 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Часики!</title>
+    <title>Чат!</title>
 
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+
+    <link rel="stylesheet" href="components/chat/chat.css" />
     <link rel="stylesheet" href="components/clock/clock.css" />
+    <link rel="stylesheet" href="components/app/app.css" />
   </head>
   <body>
-    <!-- Emmet -->
-
-    <div class="clock">
-      <span class="clock__hours">12</span>:
-      <span class="clock__mins">00</span>:
-      <span class="clock__secs">00</span>
-
-      <div class="clock__buttons">
-        <a class="clock__start">start</a>
-        <a class="clock__stop">stop</a>
-      </div>
-    </div>
-
+    
+    <div class="app"></div>
 
 
 
     <script src="components/clock/clock.js"></script>
+    <script src="components/chat/chat.pug.js"></script>
+    <script src="components/chat/chat.js"></script>
+    <script src="components/form/form.js"></script>
 
+    <script src="components/app/app.js"></script>
+
+    <!-- Application start -->
     <script>
-      (function () {
-        'use strict';
-
-        // import
-        let Clock = window.Clock;
-
-        let clocksElArray = [...document.querySelectorAll('.clock')];
-
-        clocksElArray.forEach(el => new Clock({el}));
-      })();
+      'use strict';
+      new window.App({
+        el: document.querySelector('.app')
+      });
     </script>
-
   </body>
 </html>
