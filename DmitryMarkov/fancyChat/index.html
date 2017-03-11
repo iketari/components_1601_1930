@@ -29,12 +29,28 @@
   <!-- Chat Widget Widget -->
       <div class="column column-25 column-center chat">
         <div class="column-center chat__app">
-          Chat window
+          <button class="button-primary chat__login-button" type="submit">Enter chat</button>
         </div>
       </div>
     </div>
-
   </div>
+
+  <!-- Modal -->
+  <div class="modal modal__chat not-visible">
+    <div class="modal__body">
+      <div class="modal__content">
+        <form name="chat-login" class="chat-login">
+          <fieldset>
+            <label for="nameField">Enter yo name</label>
+            <input type="text" placeholder="name" id="nameField" required autofocus />
+          </fieldset>
+          <button class="button-primary float-right" type="submit">Enter chat</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- / Modal -->
+
   <!-- Script includes -->
   <!--  <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>-->
   <script src="components/chat/chat.js"></script>

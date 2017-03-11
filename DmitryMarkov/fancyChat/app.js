@@ -4,6 +4,9 @@
 
   let showButton = document.body.querySelector('.button__show-chat')
   let chatEl = document.body.querySelector('.chat')
+  let chatLoginForm = document.body.querySelector('.chat-login')
+  let modalChat = document.body.querySelector('.modal__chat')
+  let chatLoginButton = document.body.querySelector('.chat__login-button')
 
   showButton.addEventListener('click', (e) => {
     e.preventDefault()
@@ -15,4 +18,18 @@
     chatEl.classList.toggle('column-0')
   })
 
+  chatLoginButton.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    modalChat.classList.remove('not-visible')
+  })
+
+  chatLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    modalChat.classList.add('not-visible')
+  })
+
 })()
+
+
