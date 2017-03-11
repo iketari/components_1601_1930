@@ -33,16 +33,22 @@
   <!-- Chat Widget Widget -->
       <div class="column column-25 column-center chat">
         <div class="column-center chat__app">
-          <div class="login-false hidden">
+          <div class="login-false">
             <button class="button-primary chat__login-button" type="submit">Join chat</button>
           </div>
-          <div class="login-true">
+          <div class="login-true hidden">
             <div class="chat__header">
               <i class="fa fa-user-circle-o header__avatar"></i>
               <p class="header__name">Chat with Botik</p>
             </div>
             <div class="chat__body">
-              Chat room
+              <div class="chat__message chat__message-my">
+                <div>Hi, botik</div>
+                <div class="message__time float-right">18:32</div>
+              </div>
+              <div class="chat__message chat__message-interlocutor">
+                <div>Hi, stranger!</div>
+                <div class="message__time float-right">18:31</div></div>
             </div>
             <div class="chat__footer">
               <form name="chat__form" class="chat__form">
@@ -52,6 +58,7 @@
           </div>
         </div>
       </div>
+  <!-- / Chat Widget Widget -->
     </div>
   </div>
 

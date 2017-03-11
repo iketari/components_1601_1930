@@ -1,4 +1,8 @@
-.chat__login-button {
+.chat__app {
+  background-color: #f7f3f0;
+  background-image: url('chat-background2.jpg');
+  border-left: 1px solid #e0e0e0;
+  border-left: 1px solid #9b4dca;
 }
 
 .login-false {
@@ -28,17 +32,20 @@
   margin-top: auto;
   margin-bottom: auto;
   align-self: stretch;
-  background-color: #f7f3f0;
+/*  background-color: #f7f3f0;*/
   flex: 1 1 auto;
-  background-image: url('chat-background2.jpg');
-  background-repeat: no-repeat;
-  border-left: 1px solid #9b4dca;
+/*  background-image: url('chat-background2.jpg');*/
+/*  background-repeat: repeat;*/
+/*  border-left: 1px solid #9b4dca;*/
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
 }
 
 .chat__footer {
   width: 100%;
   background-color: #9b4dca;
-  padding: 3px;
+  padding: 3px 3px 3px 2px;
 }
 
 .header__avatar {
@@ -60,9 +67,37 @@
 .chat__form textarea {
   margin: 0;
   background-color: #ffffff;
-  border-color: #9b4dca;
+  border-color: rgb(155, 77, 202);
 }
 
 .chat__form textarea:focus {
   border-color: navy;
+}
+
+.chat__message {
+  margin: 6px;
+  padding: 6px 10px;
+  background-color: #ffffff;
+  border-radius: 0px 10px 10px 10px;
+  border: 1px solid #c0c0c0;
+  box-shadow: 0 2px 0px 0px rgba(0, 0, 0, .3);
+}
+
+.chat__message-my {
+  align-self: flex-end;
+  border-radius: 10px 10px 0px 10px;
+  background-color: rgb(245, 230, 255);
+  border-color: rgba(155, 77, 202, .6);
+  box-shadow: 0 2px 0px 0px rgba(155, 77, 202, .6);
+  color: #333333;
+}
+
+.message__time {
+  font-weight: 700;
+  font-size: 0.7em;
+  color: #a0a0a0;
+}
+
+.chat__message-my .message__time {
+  color: rgb(179, 102, 226);
 }
