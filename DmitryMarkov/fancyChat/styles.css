@@ -1,0 +1,70 @@
+* {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.root {
+  align-items: center;
+  justify-content: center;
+}
+
+.website {
+/*  background-color: #f0f0f0;*/
+  height: 100%;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: auto;
+  transition-property: width;
+  transition-duration: 1s;
+}
+
+.website__header {
+  margin-top: auto;
+  margin-bottom: auto;
+  text-align: center;
+}
+
+.website__header h1 {
+  border: 2px solid #606c76;
+  padding: 10px;
+  display: inline-block;
+  text-align: left;
+  width: 50%;
+  max-width: 50%;
+  word-break: break-all;
+  font-size: 550%;
+  text-transform: uppercase;
+}
+
+.chat {
+  background-color: #d0d0d0;
+  transition-property: all;
+  transition-duration: 1s;
+  opacity: 1;
+}
+
+.chat__app {
+  background-color: #c0c0c0;
+  height: 100%;
+}
+
+.button-black {
+  background-color: #b0b0b0;
+  border-color: #b0b0b0;
+}
+
+.show__button {
+  position: absolute;
+  top: 10;
+  right: 10;
+}
+
+.hidden {
+  display: none !important;
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
