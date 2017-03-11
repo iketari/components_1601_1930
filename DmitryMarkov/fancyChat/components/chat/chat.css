@@ -1,0 +1,68 @@
+.chat__login-button {
+}
+
+.login-false {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.login-true {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1 1 auto;
+  max-width: 100%;
+  width: 100%;
+}
+
+.chat__header {
+  width: 100%;
+  background-color: #9b4dca;
+  display: flex;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+.chat__body {
+  margin-top: auto;
+  margin-bottom: auto;
+  align-self: stretch;
+  background-color: #f7f3f0;
+  flex: 1 1 auto;
+  background-image: url('chat-background2.jpg');
+  background-repeat: no-repeat;
+  border-left: 1px solid #9b4dca;
+}
+
+.chat__footer {
+  width: 100%;
+  background-color: #9b4dca;
+  padding: 3px;
+}
+
+.header__avatar {
+  margin: 10px;
+  font-size: 30px;
+}
+
+.header__name {
+  margin-top: 14px;
+  margin-bottom: -14px;
+  font-weight: 700;
+  flex: 1 1 auto;
+}
+
+.chat__form {
+  margin-bottom: 0;
+}
+
+.chat__form textarea {
+  margin: 0;
+  background-color: #ffffff;
+  border-color: #9b4dca;
+}
+
+.chat__form textarea:focus {
+  border-color: navy;
+}

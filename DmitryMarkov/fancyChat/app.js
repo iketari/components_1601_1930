@@ -7,6 +7,9 @@
   let chatLoginForm = document.body.querySelector('.chat-login')
   let modalChat = document.body.querySelector('.modal__chat')
   let chatLoginButton = document.body.querySelector('.chat__login-button')
+  let modalClose = document.body.querySelector('.modal__chat-close')
+  let loginFalse = document.body.querySelector('.login-false')
+  let loginTrue = document.body.querySelector('.login-true')
 
   showButton.addEventListener('click', (e) => {
     e.preventDefault()
@@ -25,6 +28,14 @@
   })
 
   chatLoginForm.addEventListener('submit', (e) => {
+    e.preventDefault()
+
+    modalChat.classList.add('not-visible')
+    loginFalse.classList.add('hidden')
+    loginTrue.classList.remove('hidden')
+  })
+
+  modalClose.addEventListener('click', (e) => {
     e.preventDefault()
 
     modalChat.classList.add('not-visible')

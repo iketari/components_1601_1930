@@ -4,6 +4,10 @@
   margin: 0;
 }
 
+.container {
+  padding-right: 10px;
+}
+
 .row .column {
 /*  transition: all 0.3s ease-in-out;*/
 }
@@ -41,6 +45,7 @@
 }
 
 .website__header h1 {
+  font-family: 'Source Code Pro', monospace;
   border: 2px solid #606c76;
   padding: 10px;
   display: inline-block;
@@ -48,7 +53,7 @@
   width: 50%;
   max-width: 50%;
   word-break: break-all;
-  font-size: 550%;
+  font-size: 500%;
   text-transform: uppercase;
 }
 
@@ -64,7 +69,8 @@
   height: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 .button-black {
@@ -76,6 +82,7 @@
   position: absolute;
   top: 10;
   right: 10;
+  transition: all 0.3s ease-in-out;
 }
 
 .hidden {
@@ -127,4 +134,12 @@
 
 .modal__content {
   width: 65%;
+}
+
+.m-r-1 {
+  margin-right: 10px !important;
+}
+
+.m-l-1 {
+  margin-left: 10px !important;
 }

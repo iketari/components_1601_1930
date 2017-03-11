@@ -3,15 +3,15 @@
   <meta charset="UTF-8">
   <title>fancyChat demo</title>
   <!-- Google Fonts -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" />
 
   <!-- CSS Reset -->
-  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
 
   <!-- Milligram CSS minified -->
-  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+  <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="components/chat/chat.css">
@@ -19,9 +19,13 @@
 <body>
   <!-- Website -->
   <div class="container">
-    <div class="row root">
+    <div class="row row-no-padding root">
       <div class="column website">
-        <div class="show__button"><button class="button button-black button__show-chat"><i class="fa fa-chevron-right"></i></button></div>
+        <div class="show__button">
+          <button class="button button-black button__show-chat">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
         <div class="column-center website__header">
           <h1>My beautiful website with chat option</h1>
         </div>
@@ -29,7 +33,23 @@
   <!-- Chat Widget Widget -->
       <div class="column column-25 column-center chat">
         <div class="column-center chat__app">
-          <button class="button-primary chat__login-button" type="submit">Enter chat</button>
+          <div class="login-false hidden">
+            <button class="button-primary chat__login-button" type="submit">Join chat</button>
+          </div>
+          <div class="login-true">
+            <div class="chat__header">
+              <i class="fa fa-user-circle-o header__avatar"></i>
+              <p class="header__name">Chat with Botik</p>
+            </div>
+            <div class="chat__body">
+              Chat room
+            </div>
+            <div class="chat__footer">
+              <form name="chat__form" class="chat__form">
+                  <textarea placeholder="Enter message..." id="commentField"></textarea>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -44,7 +64,8 @@
             <label for="nameField">Enter yo name</label>
             <input type="text" placeholder="name" id="nameField" required autofocus />
           </fieldset>
-          <button class="button-primary float-right" type="submit">Enter chat</button>
+          <button class="button-primary m-l-1 float-right" type="submit">Enter chat</button>
+          <button class="button-outline float-right modal__chat-close" type="button">Close</button>
         </form>
       </div>
     </div>
