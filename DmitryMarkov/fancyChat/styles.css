@@ -6,6 +6,7 @@
 
 .container {
   padding-right: 10px;
+  max-width: none;
 }
 
 .row .column {
