@@ -4,6 +4,19 @@
   margin: 0;
 }
 
+.row .column {
+/*  transition: all 0.3s ease-in-out;*/
+}
+
+.row .column.column-0 {
+  flex: 0 0 0;
+  max-width: 0%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 0%;
+}
+
 .root {
   align-items: center;
   justify-content: center;
@@ -42,7 +55,7 @@
 .chat {
   background-color: #d0d0d0;
   transition-property: all;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   opacity: 1;
 }
 
@@ -67,4 +80,12 @@
   opacity: 0;
   width: 0;
   overflow: hidden;
+}
+
+.hide {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  opacity: 0;
+  width: 0;
 }

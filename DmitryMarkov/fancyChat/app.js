@@ -11,7 +11,8 @@
     let applyEl = e.target
     if (e.target.tagName !== 'BUTTON') applyEl = e.target.parentNode
     applyEl.innerHTML = applyEl.innerHTML === '<i class="fa fa-chevron-left"></i>' ? '<i class="fa fa-chevron-right"></i>' : '<i class="fa fa-chevron-left"></i>'
-    chatEl.classList.toggle('hidden')
+    chatEl.classList.toggle('column-25')
+    chatEl.classList.toggle('column-0')
   })
 
 })()
