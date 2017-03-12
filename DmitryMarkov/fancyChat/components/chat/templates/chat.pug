@@ -1,0 +1,15 @@
+div.column-center.chat__app
+  div.login-false.hidden
+    button.button-primary.chat__login-button Join chat
+  div.login-true
+    div.chat__header
+      i.fa.fa-user-circle-o.header__avatar
+      p.header_name Chat with Botik
+    div.chat__body
+      each message in messages
+        div.chat__message(class=message.my ? 'chat__message-my' : '')
+          div=message.text
+          div.message__time.float-right=message.date
+    div.chat__footer
+      form.chat__form(name='chat__form')
+        textarea#message(placeholder='Enter message...')

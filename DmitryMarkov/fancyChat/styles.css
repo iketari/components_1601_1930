@@ -9,10 +9,6 @@
   max-width: none;
 }
 
-.row .column {
-/*  transition: all 0.3s ease-in-out;*/
-}
-
 .row .column.column-0 {
   flex: 0 0 0;
   max-width: 0%;
@@ -28,7 +24,6 @@
 }
 
 .website {
-/*  background-color: #f0f0f0;*/
   height: 100%;
   display: flex !important;
   align-items: center;
@@ -56,22 +51,6 @@
   word-break: break-all;
   font-size: 500%;
   text-transform: uppercase;
-}
-
-.chat {
-  background-color: #d0d0d0;
-  transition-property: all;
-  transition-duration: 0.5s;
-  opacity: 1;
-}
-
-.chat__app {
-  background-color: #c0c0c0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
 }
 
 .button-black {
@@ -106,37 +85,6 @@
   visibility: hidden;
 }
 
-.modal {
-  position: fixed;
-  z-index: 998;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, .5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity .3s ease;
-}
-
-.modal__body {
-  background-color: #ffffff;
-  position: relative;
-  width: 50%;
-  height: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  transition: all .3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .4);
-}
-
-.modal__content {
-  width: 65%;
-}
-
 .m-r-1 {
   margin-right: 10px !important;
 }
@@ -144,3 +92,5 @@
 .m-l-1 {
   margin-left: 10px !important;
 }
+
+/* ------------------------ */

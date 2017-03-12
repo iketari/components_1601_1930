@@ -1,20 +1,21 @@
 <html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>fancyChat demo</title>
-  <!-- Google Fonts -->
-  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" /><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" />
 
-  <!-- CSS Reset -->
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" />
+
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
 
-  <!-- Milligram CSS minified -->
   <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
 
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="components/chat/chat.css">
+  <link rel="stylesheet" href="styles.css" />
+
+  <link rel="stylesheet" href="components/chat/chat.css" />
 </head>
 <body>
   <!-- Website -->
@@ -33,10 +34,10 @@
   <!-- Chat Widget Widget -->
       <div class="column column-25 column-center chat">
         <div class="column-center chat__app">
-          <div class="login-false">
+          <div class="login-false hidden">
             <button class="button-primary chat__login-button" type="submit">Join chat</button>
           </div>
-          <div class="login-true hidden">
+          <div class="login-true">
             <div class="chat__header">
               <i class="fa fa-user-circle-o header__avatar"></i>
               <p class="header__name">Chat with Botik</p>
@@ -80,7 +81,6 @@
   <!-- / Modal -->
 
   <!-- Script includes -->
-  <!--  <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>-->
   <script src="components/chat/chat.js"></script>
   <script src="app.js"></script>
 </body>
