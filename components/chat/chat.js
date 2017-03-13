@@ -25,13 +25,13 @@
 		 * Добавить новое сообщение в чат
 		 * @param {ChatMessage} data
 		 */
-		addMessage (data) {
+		addMessage ({avatar, name, text}) {
 			this.data.messages.push({
-				avatar: 'http://i.imgur.com/FHMnsVNt.jpg',
-				name: data.name || this.data.user,
-				isMine: data.name === this.data.user,
-				text: data.text,
-				date: data.date || new Date()
+				avatar,
+				name,
+				isMine: name === this.data.user,
+				text,
+				date: new Date()
 			});
 		}
 

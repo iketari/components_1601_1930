@@ -5,6 +5,21 @@
 	const Chat = window.Chat;
 	const Form = window.Form;
 
+
+	function makeRequest (cb) {
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', '/data/chat.json', true);
+
+		xhr.onload = () => {
+			console.log('onload DATA:', JSON.parse(xhr.responseText));
+			cb(JSON.parse(xhr.responseText));
+		}
+
+		xhr.send();
+		console.log('after send DATA:', xhr.responseText);
+	}
+
+
 	class App {
 		constructor(options) {
 			this.el = options.el;
@@ -15,7 +30,10 @@
 			this.el.appendChild(this.chat.el);
 			this.el.appendChild(this.form.el);
 
-			this.render();
+			makeRequest(data => {
+				this.chat.data = data;
+				this.render();
+			});
 		}
 
 		render () {
