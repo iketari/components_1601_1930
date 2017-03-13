@@ -3,6 +3,20 @@
   'use strict'
 
   const chat_tmpl = window.chat_tmpl
+  const botik_answers = [
+    'Расскажи мне что-нибудь',
+    'Мне скучно',
+    'О чем ты думаешь?',
+    'Хочешь поговорить об этом?',
+    'Как ты провел свой день?',
+    'У тебя есть планы на завтрашний денёк?',
+    'Тебе нравится погода за окошком?',
+    'Во сколько ты проснулся?',
+    'Я тоже',
+    'Ага',
+    'И тебе',
+    'Хмм, интересненько...'
+  ]
 
   const LoginForm = window.LoginForm
   const MessageList = window.MessageList
@@ -26,13 +40,6 @@
     }
 
     render () {
-      if (!this.messages.length && this.userName) {
-        this._addMessage({
-          text: `Привет, ${this.userName}!`,
-          my: false
-        })
-        this.notification.play()
-      }
       this.el.innerHTML = chat_tmpl({
         messages: this.messages,
         username: this.userName
@@ -44,25 +51,21 @@
         el: document.createElement('div')
       })
       this.messageForm = new MessageForm({
-        el: document.querySelector('.chat__form')
+        el: this.el.querySelector('.chat__form')
       })
+      this.messageList = new MessageList({
+        el: this.el.querySelector('.chat__body')
+      })
+
     }
 
-    _addMessage (data) {
-      this.messages.unshift({ // unshift is no good
-        text: data.text,
-        my: data.my || false,
-        date: new Date().getHours() + ':' + new Date().getMinutes()
-      })
-    }
-
-    _botikAnswer () {
+    _botikAnswer (message) {
       setTimeout(() => {
-        this._addMessage({
-          text: `Расскажи мне что-нибудь`,
+        this.messageList.addMessage({
+          text: message ? message : botik_answers[Math.round(Math.random() * (botik_answers.length - 1))],
           my: false
         })
-        this.render()
+        this.messageList.render()
         this.notification.play()
       }, 1500)
     }
@@ -70,6 +73,7 @@
     _showHideChat (e) {
       e.preventDefault()
 
+      /* Can we do better? */
       let applyEl = e.target
       if (e.target.tagName !== 'BUTTON') applyEl = e.target.parentNode
       applyEl.innerHTML = applyEl.innerHTML === '<i class="fa fa-chevron-left"></i>' ? '<i class="fa fa-chevron-right"></i>' : '<i class="fa fa-chevron-left"></i>'
@@ -91,20 +95,23 @@
         this.userName = e.detail.username
         window.sessionStorage.setItem('chatWidgetName', this.userName)
 
-        this.render()
+        this.el.querySelector('.login-false').classList.toggle('hidden')
+        this.el.querySelector('.login-true').classList.toggle('hidden')
+
+        if (!this.messageList.getMessageList().length && this.userName) {
+          this._botikAnswer(`Привет, ${this.userName}!`)
+        }
       })
 
       this.messageForm.on('message', (e) => {
-        console.log(e.detail.text)
-        this._addMessage({
+        this.messageList.addMessage({
           text: e.detail.text,
           my: true
         })
-        this.render()
+        this.messageList.render()
         this._botikAnswer()
         this.sending.play()
       })
-
     }
   }
 

@@ -14,17 +14,17 @@ sass --watch chat/sass:chat
 
 ### TODO
 
-- [ ] overflow-y
+- [x] overflow-y
 - [x] audio blink sound
-- [ ] setTimeout for botik messages
+- [x] setTimeout for botik messages
 - [x] localStore username and botik use this name
 - [ ] textarea auto resize with text
-- [ ] chat window auto scroll
+- [x] chat window auto scroll
 - [x] pug templates
 - [x] scss file with vars and mixins
 - [ ] show/hide button component
 - [ ] replace emojis
-- [ ] date divider
+- [ ] date divider and proper date in message history
 - [ ] bem styles
 - [x] event-oriented interface
 - [ ] accent corners

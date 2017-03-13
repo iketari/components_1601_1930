@@ -19,21 +19,15 @@
 		}
 
     reset (e) {
-      // e.target.value = ''
       this.el.reset()
     }
 
     submitMessageForm (e) {
-      // e.preventDefault()
-      // console.log(e)
       if (e.charCode == 13 && e.shiftKey === false) {
         e.preventDefault()
-        // console.log(e.target.value)
         this.trigger('message', { text: e.target.value })
         this.reset(e)
       }
-
-      // this.trigger('message', { text: e.target.message.value })
     }
 
     _initEvents () {

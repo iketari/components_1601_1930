@@ -11,7 +11,6 @@
       this.render()
 
       this.toggleModal = this.toggleModal.bind(this)
-      // this.submitLoginForm = this.submitLoginForm.bind(this)
 
       this._initEvents()
     }
@@ -50,7 +49,6 @@
       this.chatModalClose.addEventListener('click', this.toggleModal)
       this.chatModalSubmit.addEventListener('submit', this.submitLoginForm.bind(this))
     }
-
   }
 
   window.LoginForm = LoginForm
