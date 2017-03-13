@@ -6,7 +6,7 @@ div.column-center.chat__app
       i.fa.fa-user-circle-o.header__avatar
       p.header__name Chat with Botik
     div.chat__body
-      each message in messages
+      each message in messages.reverse()
         div.chat__message(class=message.my ? 'chat__message-my' : '')
           div=message.text
           div.message__time.float-right=message.date
