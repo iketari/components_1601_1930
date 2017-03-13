@@ -15,9 +15,9 @@ sass --watch chat/sass:chat
 ### TODO
 
 - [ ] overflow-y
-- [ ] audio blink sound
+- [x] audio blink sound
 - [ ] setTimeout for botik messages
-- [ ] localStore username and botik use this name
+- [x] localStore username and botik use this name
 - [ ] textarea auto resize with text
 - [ ] chat window auto scroll
 - [x] pug templates
@@ -26,7 +26,7 @@ sass --watch chat/sass:chat
 - [ ] replace emojis
 - [ ] date divider
 - [ ] bem styles
-- [ ] event-oriented interface
+- [x] event-oriented interface
 - [ ] accent corners
 - [ ] chat with me button closed
 - [ ] my own background
