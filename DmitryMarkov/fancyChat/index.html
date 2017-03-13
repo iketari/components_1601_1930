@@ -4,18 +4,13 @@
   <title>fancyChat demo</title>
 
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic" />
-
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro:200" />
-
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css" />
-
   <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css" />
-
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
   <link rel="stylesheet" href="styles.css" />
-
-  <link rel="stylesheet" href="components/chat/chat.css" />
+  <link rel="stylesheet" href="chat/chat.css" />
 </head>
 <body>
   <!-- Website -->
@@ -31,7 +26,11 @@
           <h1>My beautiful website with chat option</h1>
         </div>
       </div>
-  <!-- Chat Widget Widget -->
+      <!-- Chat Widget Widget -->
+      <div class="column column-25 column-center chat"></div>
+      <!-- / Chat Widget Widget -->
+
+  <!-- Chat Widget Widget --
       <div class="column column-25 column-center chat">
         <div class="column-center chat__app">
           <div class="login-false hidden">
@@ -63,7 +62,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal --
   <div class="modal modal__chat not-visible">
     <div class="modal__body">
       <div class="modal__content">
@@ -81,7 +80,12 @@
   <!-- / Modal -->
 
   <!-- Script includes -->
-  <script src="components/chat/chat.js"></script>
+  <script src="chat/templates/chat.pug.js"></script>
+  <script src="chat/templates/modal.pug.js"></script>
+  <script src="chat/components/loginForm.js"></script>
+  <script src="chat/components/messageForm.js"></script>
+  <script src="chat/components/messageList.js"></script>
+  <script src="chat/chat.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
