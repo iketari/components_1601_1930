@@ -1,10 +1,10 @@
 div.column-center.chat__app
-  div.login-false.hidden
+  div.login-false(class=username ? 'hidden' : '')
     button.button-primary.chat__login-button Join chat
-  div.login-true
+  div.login-true(class=!username ? 'hidden' : '')
     div.chat__header
       i.fa.fa-user-circle-o.header__avatar
-      p.header_name Chat with Botik
+      p.header__name Chat with Botik
     div.chat__body
       each message in messages
         div.chat__message(class=message.my ? 'chat__message-my' : '')

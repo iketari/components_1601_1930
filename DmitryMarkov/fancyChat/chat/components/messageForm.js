@@ -2,4 +2,12 @@
 ;(function () {
   'use strict'
 
+  class MessageForm {
+    constructor () {
+
+    }
+  }
+
+  window.MessageForm = MessageForm
+
 })()

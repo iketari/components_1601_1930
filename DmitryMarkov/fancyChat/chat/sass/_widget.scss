@@ -43,6 +43,12 @@
     border: 1px solid #c0c0c0;
     box-shadow: 0 2px 0px 0px rgba(0, 0, 0, .3);
 
+    .message__time {
+      font-weight: 700;
+      font-size: 0.7em;
+      color: #a0a0a0;
+    }
+
     &-my {
       align-self: flex-end;
       border-radius: 10px 10px 0px 10px;
@@ -106,8 +112,3 @@
   flex: 1 1 auto;
 }
 
-.message__time {
-  font-weight: 700;
-  font-size: 0.7em;
-  color: #a0a0a0;
-}

@@ -2,9 +2,9 @@
 
 ### Commands
 ```
-pug --client components/chat/templates/modal.pug --extension pug.js --name modal_tmpl
-pug --client components/chat/templates/chat.pug --extension pug.js --name chat_tmpl
-sass --watch components/chat/sass:components/chat
+pug --client chat/templates/modal.pug --extension pug.js --name modal_tmpl
+pug --client chat/templates/chat.pug --extension pug.js --name chat_tmpl
+sass --watch chat/sass:chat
 ```
 ### TODO
 
@@ -16,6 +16,7 @@ sass --watch components/chat/sass:components/chat
 - [ ] chat window auto scroll
 - [x] pug templates
 - [x] scss file with vars and mixins
+- [ ] show/hide button component
 - [ ] replace emojis
 - [ ] date divider
 - [ ] bem styles
@@ -24,3 +25,4 @@ sass --watch components/chat/sass:components/chat
 - [ ] chat with me button closed
 - [ ] my own background
 - [ ] webpack conf
+- [ ] generic form component with extends

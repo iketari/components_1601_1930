@@ -2,4 +2,12 @@
 ;(function () {
   'use strict'
 
+  class MessageList {
+    constructor () {
+
+    }
+  }
+
+  window.MessageList = MessageList
+
 })()
