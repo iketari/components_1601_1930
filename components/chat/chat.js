@@ -15,8 +15,6 @@
 		constructor({el, data = {messages: []}}) {
 			this.el = el;
 			this.data = data;
-
-			this._getUserName();
 		}
 
 		render () {
@@ -31,6 +29,7 @@
 			this.data.messages.push({
 				avatar: 'http://i.imgur.com/FHMnsVNt.jpg',
 				name: data.name || this.data.user,
+				isMine: data.name === this.data.user,
 				text: data.text,
 				date: data.date || new Date()
 			});
@@ -44,9 +43,11 @@
 			console.info('Метод onScrollEnd не реализован');
 		}
 
-		_getUserName () {
-			//TODO: справшивать
-			this.data.user = 'Tim';
+		/**
+		 * Устанавливаем текущего юзера
+		 */
+		setUserName (name) {
+			this.data.user = name;
 		}
 
 	}

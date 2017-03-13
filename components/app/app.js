@@ -25,7 +25,11 @@
 
 		_createComponents () {
 			this.chat = new Chat({
-				el: document.createElement('div')
+				el: document.createElement('div'),
+				data: {
+					messages: [],
+					user: 'Tim'
+				}
 			});
 
 			this.form = new Form({
@@ -45,8 +49,11 @@
 				this.form.reset();
 			});
 		}
-	
-		// methods
+
+		addMessage (data) {
+			this.chat.addMessage(data);
+		}
+
 	}
 
 	//export
