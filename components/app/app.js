@@ -4,6 +4,8 @@
 	//import
 	const Chat = window.Chat;
 	const Form = window.Form;
+	const AvatarService = window.AvatarService;
+	const ChatService = window.ChatService;
 
 
 	function makeRequest (cb) {
@@ -31,7 +33,7 @@
 			this.el.appendChild(this.form.el);
 
 			makeRequest(data => {
-				this.chat.data = data;
+				this.chat.add(data.messages);
 				this.render();
 			});
 		}
@@ -44,6 +46,8 @@
 		_createComponents () {
 			this.chat = new Chat({
 				el: document.createElement('div'),
+				avatarService: new AvatarService,
+				chatService: new ChatService,
 				data: {
 					messages: [],
 					user: 'Tim'
@@ -60,8 +64,9 @@
 				let data = event.detail;
 
 
-				this.chat.addMessage({
-					text: data.message.value
+				this.chat.addOne({
+					text: data.message.value,
+					name: 'Tim'
 				});
 				this.chat.render();
 				this.form.reset();
@@ -69,7 +74,7 @@
 		}
 
 		addMessage (data) {
-			this.chat.addMessage(data);
+			this.chat.addOne(data);
 		}
 
 	}

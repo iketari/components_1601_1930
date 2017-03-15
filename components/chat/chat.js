@@ -12,20 +12,49 @@
 	 */
 
 	class Chat {
-		constructor({el, data = {messages: []}}) {
+		constructor({
+				el,
+				data = {messages: []},
+				avatarService,
+				chatService
+			}) {
+
 			this.el = el;
 			this.data = data;
+
+			this.avatarService = avatarService;
+			this.chatService = chatService;
 		}
 
 		render () {
-			this.el.innerHTML = tmpl(this.data);
+			this.el.innerHTML = tmpl(this.getData());
+		}
+
+		getData () {
+			this._updateAvatars();
+
+			return this.data;
+		}
+
+		_updateAvatars () {
+			this.data.messages.forEach(message => {
+				message.avatar = this.avatarService.getAvatar(message.name);
+			});
+		}
+
+		/**
+		 * Массовое добавление сообщений
+		 * @param {Array<ChatMessages>} messages
+		 */
+		add (messages = []) {
+			messages.forEach(this.addOne.bind(this));
 		}
 
 		/**
 		 * Добавить новое сообщение в чат
 		 * @param {ChatMessage} data
 		 */
-		addMessage ({avatar, name, text}) {
+		addOne ({avatar, name, text}) {
 			this.data.messages.push({
 				avatar,
 				name,

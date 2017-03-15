@@ -3,20 +3,17 @@
 	"messages": [
 		{
 			"text": "Мое первое сообщение",
-			"name": "Tim",
-			"avatar": "http://i.imgur.com/FHMnsVNt.jpg"
+			"name": "Tim"
 		},
 
 		{
 			"text": "Нет, мое первое!",
-			"name": "Matt",
-			"avatar": "//1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mm"
+			"name": "Matt"
 		},
 
 		{
 			"text": "Нет, мое появилось только на сервере!",
-			"name": "Matt",
-			"avatar": "//1.gravatar.com/avatar/767fc9c115a1b989744c755db47feb60?s=200&r=pg&d=mm"
+			"name": "Kristobal"
 		}
 	]
 }
