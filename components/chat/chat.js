@@ -24,6 +24,16 @@
 
 			this.avatarService = avatarService;
 			this.chatService = chatService;
+
+			this._init();
+		}
+
+		_init () {
+			this.chatService.getMessages(data => {
+				this.setUser(data.user);
+				this.add(data.messages);
+				this.render();
+			})
 		}
 
 		render () {
@@ -40,6 +50,14 @@
 			this.data.messages.forEach(message => {
 				message.avatar = this.avatarService.getAvatar(message.name);
 			});
+		}
+
+		/**
+		 * Устанавливает текущего пользователя
+		 * @param {string} name
+		 */
+		setUser (name) {
+			this.data.user = name;
 		}
 
 		/**
