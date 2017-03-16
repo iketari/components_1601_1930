@@ -1,7 +1,10 @@
 div.chat
 	div.chat__container
 		div.header
-			h2='Добро пожаловать ' + user
+			if !user
+				input.chat__userinput
+			else
+				h2='Добро пожаловать ' + user
 		div.chat__box
 
 			if !messages.length

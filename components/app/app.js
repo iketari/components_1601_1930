@@ -7,6 +7,10 @@
 	const AvatarService = window.AvatarService;
 	const ChatService = window.ChatService;
 
+	const chatService = new ChatService({
+		baseUrl: 'https://components-1601-1930.firebaseio.com/chat/messages.json'
+	});
+
 	class App {
 
 		constructor(options) {
@@ -30,12 +34,10 @@
 			this.chat = new Chat({
 				el: document.createElement('div'),
 				avatarService: new AvatarService,
-				chatService: new ChatService({
-					baseUrl: '/data/chat.json'
-				}),
+				chatService,
 				data: {
 					messages: [],
-					user: 'Tim'
+					user: null
 				}
 			});
 
@@ -48,10 +50,16 @@
 			this.form.on('message', (event) => {
 				let data = event.detail;
 
-				this.chat.addOne({
+				data = {
 					text: data.message.value,
-					name: 'Tim'
+					name: this.chat.getUsername()
+				};
+
+				chatService.sendMessage(data, () => {
+					console.log('NEW MSG');
 				});
+
+				this.chat.addOne(data);
 
 				this.chat.render();
 				this.form.reset();

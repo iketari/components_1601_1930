@@ -20,10 +20,12 @@
 		}
 
 		getMessages (cb) {
-			this._makeRequest(cb);
+			this._makeRequest(messages => cb(Object.values(messages)));
 		}
 
-		sendMessage () {}
+		sendMessage (data, cb) {
+			this._makeRequest(cb, 'POST', data);
+		}
 	
 		// methods
 	}
