@@ -24,6 +24,7 @@
 		}
 
 		sendMessage (data, cb) {
+			data.date = Date.now();
 			this._makeRequest(cb, 'POST', data);
 		}
 	

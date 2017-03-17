@@ -3,6 +3,7 @@
 
 	//import
 	const tmpl = window.chat_tmpl;
+	const utils = window.utils;
 
 	/**
 	 * @typedef {Object} ChatData
@@ -61,6 +62,13 @@
 				this.chatService.getMessages(data => {
 					console.log('getMessages', data);
 
+					if (utils.deepEqual(
+							this.data.messages, 
+							data.map(this._prepareMessage.bind(this)))
+						) {
+						return;
+					}
+
 					this.set(data);
 					this.render();
 
@@ -73,13 +81,28 @@
 		}
 
 		render () {
+			this._saveScrollTop();
 			this.el.innerHTML = tmpl(this.getData());
+			this._restoreScrollTop();
+		}
+
+		_saveScrollTop () {
+			let chatBox = this.el.querySelector('.chat__box');
+
+			if (chatBox) {
+				this._scrollTop = chatBox.scrollTop;
+			}
+		}
+
+		_restoreScrollTop () {
+			let chatBox = this.el.querySelector('.chat__box');
+
+			if (chatBox) {
+				chatBox.scrollTop = this._scrollTop;
+			}
 		}
 
 		getData () {
-			this._updateAvatars();
-			this._updateMessages();
-
 			return this.data;
 		}
 
@@ -88,13 +111,9 @@
 		}
 
 		_updateMessages () {
-			this.data.messages = this.data.messages.reverse();
-		}
-
-		_updateAvatars () {
-			this.data.messages.forEach(message => {
-				message.avatar = this.avatarService.getAvatar(message.name);
-			});
+			this.data.messages = this.data.messages.sort((message1, message2) => {
+				return message2.date - message1.date;
+			});	
 		}
 
 		/**
@@ -124,14 +143,18 @@
 		 * Добавить новое сообщение в чат
 		 * @param {ChatMessage} data
 		 */
-		addOne ({avatar, name, text}) {
-			this.data.messages.push({
-				avatar,
+		addOne (data) {
+			this.data.messages.push(this._prepareMessage(data));
+		}
+
+		_prepareMessage ({avatar, name, text, date = Date.now()}) {
+			return {
+				avatar: this.avatarService.getAvatar(name),
 				name,
 				isMine: name === this.data.user,
 				text,
-				date: new Date()
-			});
+				date: new Date(date)
+			}
 		}
 
 		onScrollStart (cb) {
