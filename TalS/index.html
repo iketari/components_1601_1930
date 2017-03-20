@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Часики!!!</title>
+
+    <link rel="stylesheet" href="components/clock/clock.css" />
+  </head>
+  <body>
+    <!-- Emmet -->
+
+    <div class="clock"><p>
+      <span class="clock__hours">00</span>:
+      <span class="clock__mins">00</span>:
+      <span class="clock__secs">00</span></p>
+    </div>
+
+
+    <script src="components/clock/clock.js"></script>
+
+    <script type="text/javascript">
+      (function () {
+        'use strict';
+
+        // import
+        let Clock = window.Clock;
+        let clocksElArray = [...document.querySelectorAll('.clock')];
+
+        clocksElArray.forEach(el => {
+          new Clock({el});
+        })
+      })();
+    </script>
+
+  </body>
+</html>
