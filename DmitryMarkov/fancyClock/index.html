@@ -1,0 +1,34 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>fancyClock demo</title>
+  <link rel="stylesheet" href="components/clock/clock.css">
+</head>
+<body>
+  <!-- Clock Widget -->
+  <div class="clock">
+    <div class="clock__face">
+      <img src="components/clock/clock-bg.svg" class="clock__background" />
+      <img src="components/clock/arrow-hours.svg" class="clock__arrow-hours" />
+      <img src="components/clock/arrow-minutes.svg" class="clock__arrow-minutes" />
+      <img src="components/clock/arrow-seconds.svg" class="clock__arrow-seconds arr-trans" />
+    </div>
+
+    <div class="clock__digits">
+      <span class="clock__hours"></span>:
+      <span class="clock__mins"></span>:
+      <span class="clock__secs"></span>
+    </div>
+
+    <div class="clock__controls">
+      <a href="#" class="clock__start disabled" data-tooltip="Запустить путь в вечность">Start</a>
+      <a href="#" class="clock__pause" data-tooltip="Остановить ход времени">Pause</a>
+      <a href="#" class="clock__reset" data-tooltip="Прекратить игры">Reset</a>
+    </div>
+
+  </div>
+  <!-- Script includes -->
+  <script src="components/clock/clock.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
